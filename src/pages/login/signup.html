@@ -1,0 +1,74 @@
+<!-- <ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Sign up</ion-title>
+    </ion-navbar>
+</ion-header> -->
+<style>
+.red{
+	color: red;
+}
+.bottom-margin{
+	margin-bottom: 0px !important;
+}
+</style>
+
+
+<ion-content has-bouncing="true" padding text-center class="white backgroundImage" [ngStyle]="{'background-image': 'url(assets/imgs/login-bgImage.jpg)'}">
+	<ion-avatar class="marginBottom4">
+        <img class="iconImage" [src]="iconImage()">
+    </ion-avatar>
+	<form role="form" [formGroup]="signupForm" (ngSubmit)="signup()" >
+		<ion-item>
+			<ion-input formControlName="firstname" placeholder="First Name" type="text"></ion-input>
+		</ion-item>
+		
+		<ion-item>
+			<ion-input formControlName="lastname" placeholder="Last Name" type="text"></ion-input>
+		</ion-item>
+		
+		<ion-item [ngClass]="{'bottom-margin': signupForm.controls['email'].touched && signupForm.controls['email'].dirty && signupForm.controls['email'].invalid }">
+			<ion-input formControlName="email" placeholder="E-mail" type="text"></ion-input>
+		</ion-item>
+
+		<ion-row *ngIf="signupForm.controls['email'].touched && signupForm.controls['email'].dirty && signupForm.controls['email'].invalid " class="red padding8-16px">
+			Please enter a valid Email ID.
+		</ion-row>
+
+		<!-- <ion-input formControlName="username" placeholder="Username" type="text"></ion-input>
+
+		<ion-row *ngIf="signupForm.controls['username'].touched && signupForm.controls['username'].dirty && signupForm.controls['username'].invalid " class="white">
+			Please enter a valid Username.
+		</ion-row> -->
+
+		<ion-item [ngClass]="{'bottom-margin':formErrors.password}">
+			<ion-input formControlName="password" placeholder="Password" type="password" [pattern] = "passwordp"></ion-input>
+		</ion-item>
+		<div *ngIf="formErrors.password" class="red alert alert-danger mt-3 padding8-16px" text-left> 
+            {{ formErrors.password }}
+        </div>
+
+		<ion-item [ngClass]="{'bottom-margin':!passMatch}">
+			<ion-input formControlName="confirmpassword" placeholder="Confirm Password" type="password" [pattern] = "passwordp"></ion-input>
+		</ion-item>
+
+		<ion-row *ngIf="!passMatch" class="red padding8-16px">
+			Password didn't Match!
+		</ion-row>
+
+
+		<button ion-button class="themeRedBg" full [disabled]="!signupForm.valid">Sign up</button>
+
+		<ion-row>
+			<ion-col padding-top text-center col-12>
+				<span class="themeGreen" (click)="loginPage()">
+					<strong>Sign In</strong>
+				</span>
+			</ion-col>
+		</ion-row>
+		
+	</form>
+	<!-- <button ion-button class="themeGreenBg" full (click)="loginPage()">Login</button> -->
+</ion-content>

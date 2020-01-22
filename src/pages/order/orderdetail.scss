@@ -1,0 +1,152 @@
+page-orderdetail {
+
+	ion-content{
+	    background: #E2E2E2 !important;
+	}
+
+	.padding5-0px{
+		padding : 5px 0px !important;
+	}
+
+	.bgWhite{
+		background : white !important;
+	}
+
+	.discountPercent{
+		font-size: 1rem;
+	}
+
+	.green{
+		color : #449D44;
+	}
+
+	.deliveredClass{
+		position: absolute;
+	    right: 26px;
+	    font-weight : 600;
+	    color : green;
+	}
+
+	.whiteDiv{
+		background : white !important;
+		margin-bottom : 2vh;
+		font-size : 1.2rem;
+		padding : 10px;
+	}
+
+	ion-item .item-inner{
+		border : none !important;
+	}
+	.qtyDiv{
+	    display: inline-flex;
+	}
+
+	.qtyDiv ion-label, .qtyDiv ion-icon {
+	    text-align: center;
+	    font-weight: 600;
+	}
+
+	.comboMenuImage{
+	    height: 30px;
+    	background-position: center;
+	    background-size: cover;
+	}
+
+	.qtyDiv ion-label{
+        font-size: 2.5vh;
+	}
+
+	.qtyDiv ion-icon{
+	    background: #31373d;
+	    border-radius: 10px;
+	    text-align: center;
+	    padding: 0.5vh 1vh !important;
+	    color: white;
+	} 
+
+	.paddingTop9px{
+		padding-top : 9px;
+	}
+
+	.height2px{
+		height : 2px;
+	}
+
+	ion-textarea{
+	    border-bottom: 1px solid #a0a0a0;
+	}
+
+	ion-datetime{
+	    width: 100% !important;
+	    flex: auto !important;
+        padding: 5px !important;
+	}
+
+	ion-datetime .item-cover{
+		position : inherit !important;
+		width : 0 !important;
+	}
+
+	ion-datetime button{
+		border-left: 5px solid transparent;
+    	margin-top: 2%;
+    	padding: 0;
+	    border-right: 5px solid transparent;
+	    border-top: 5px solid #999999;
+	}
+
+	/*.orderStatusBar{
+	    margin: 4vh 0 1.5vh 0;
+        background: #d4d4d4;
+	}*/
+
+	ion-item h3{
+		margin : 0 !important;
+	}
+
+	.padding10px{
+		padding : 10px;
+	}
+
+	.divHighlighted{
+	    background: #f1f1f1;
+	    margin: 1vh 0;
+	}
+
+
+
+
+
+
+
+
+
+
+	
+	rating.orderPacking ul {
+		padding: 0px;
+		text-align : center;
+
+		&.rating li {
+		    padding: 5px 10px !important;
+		    background: none;
+		    color: gold;
+
+		    ion-icon {
+		      font-size: 2.5rem;
+	    	}
+	    }
+	}
+
+
+	.greenBorder{
+		border-left : 4px solid green;
+	    font-weight: 600;
+	}
+
+	.grayBorder{
+		margin-left: 1px;
+	    border-left: 2px solid lightgray;
+	}
+
+}

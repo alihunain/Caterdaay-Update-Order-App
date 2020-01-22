@@ -1,0 +1,98 @@
+{
+  "project_info": {
+    "project_number": "1079038229809",
+    "firebase_url": "https://orderapp-e993a.firebaseio.com",
+    "project_id": "orderapp-e993a",
+    "storage_bucket": "orderapp-e993a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1079038229809:android:5e86a3a0bee9f1afce4410",
+        "android_client_info": {
+          "package_name": "io.ionic.customerApp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1079038229809-41gv7lpni44qf66addca13e0fq7l6erb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOa52UetPpoy2f8rZaA6uux1i3Qgk5Lkk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1079038229809-41gv7lpni44qf66addca13e0fq7l6erb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1079038229809:android:aa6d752a8c9c2d62ce4410",
+        "android_client_info": {
+          "package_name": "io.ionic.driverApp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1079038229809-41gv7lpni44qf66addca13e0fq7l6erb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOa52UetPpoy2f8rZaA6uux1i3Qgk5Lkk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1079038229809-41gv7lpni44qf66addca13e0fq7l6erb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1079038229809:android:a23aa3888d127691ce4410",
+        "android_client_info": {
+          "package_name": "io.ionic.ownerApp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1079038229809-41gv7lpni44qf66addca13e0fq7l6erb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOa52UetPpoy2f8rZaA6uux1i3Qgk5Lkk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1079038229809-41gv7lpni44qf66addca13e0fq7l6erb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

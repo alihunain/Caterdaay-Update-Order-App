@@ -1,0 +1,55 @@
+page-my-pop-over{
+	/*
+	.scroll-content{
+	    overflow-y: hidden;
+	    margin : 0 !important;
+	}
+
+	ion-item{
+	    font-size: 2vh !important;
+	    letter-spacing: 0.5px;
+	}
+	*/
+
+	.openCloseDiv{
+		background: peachpuff !important;
+	    font-weight: 600;
+	    padding: 0;
+	    margin-bottom: 2vh;
+	    font-size: 1.2rem;
+	}
+
+	.paddingHorizontal6px{
+		padding : 0 6px;
+	}
+
+
+	ion-content{
+	    background: #E2E2E2 !important;
+	}
+
+	.bgWhite{
+		background : white !important;
+	}
+
+	.whiteDiv{
+		background : white !important;
+		margin-bottom : 2vh;
+		font-size : 1.2rem;
+		padding : 10px;
+	}
+
+	ion-item .item-inner{
+		border : none !important;
+	}
+	
+	.paddingTop9px{
+		padding-top : 9px;
+	}
+
+	.height2px{
+		height : 2px;
+	}
+
+
+}

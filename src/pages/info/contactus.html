@@ -1,0 +1,60 @@
+<!--
+Generated template for the InfoPage page.
+
+See http://ionicframework.com/docs/components/#navigation for more info on
+Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>Contact Us</ion-title>
+        <ion-icon  padding-horizontal margin-right class = "white" float-right end name="cart" ios="ios-cart" md="md-cart" (click)="cartPage()"></ion-icon>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding has-bouncing="true">
+    <ion-row><strong><h5>How may we help you?</h5></strong></ion-row>
+
+    <ion-row class="marginBottom1vh color-gray" padding-left><strong>Our agents are available 24x7 to make sure that all your issues and inquiries are resolved.</strong></ion-row>
+    <!-- <ion-row class="marginBottom1vh" padding-left>abc@gmail.com</ion-row> -->
+
+    <hr>
+
+    <ion-row><strong><h5>Contact Form</h5></strong></ion-row>
+    <ion-row class="marginBottom1vh color-gray" padding-left><strong>Please fill the below contact form and we make sure to get back to you as soon as possible.</strong></ion-row>
+
+    <form role="form" [formGroup]="contactForm" (ngSubmit)="addMessage()">
+        <ion-row padding-left>
+            <ion-input formControlName="name" type="text" placeholder="Full Name"></ion-input>
+        </ion-row>
+        <ion-row padding-left>
+            <ion-input formControlName="email" type="email" placeholder="Email ID"></ion-input>
+        </ion-row>
+        <ion-row padding-left>
+            <ion-input formControlName="phone" type="tel" placeholder="Phone Number"></ion-input>
+        </ion-row>
+        <ion-row padding-left>
+            <ion-textarea rows="3" formControlName="message" type="text" placeholder="Message"></ion-textarea>
+        </ion-row>
+
+        <button ion-button full [disabled]="!contactForm.valid">Send</button>
+    </form>
+
+    <ion-row class="marginBottom1vh color-gray"><strong>To get the quickest response in case you need to:</strong></ion-row>
+
+    <ion-row class="marginBottom1vh alignItemsCenter"><ion-icon name="checkmark" ios="ios-checkmark" md="md-checkmark" color = "secondary"></ion-icon> &nbsp; &nbsp; <strong>Modify your order</strong></ion-row>
+    <ion-row class="marginBottom1vh alignItemsCenter"><ion-icon name="checkmark" ios="ios-checkmark" md="md-checkmark" color = "secondary"></ion-icon> &nbsp; &nbsp; <strong>General inquiries</strong></ion-row>
+
+    <ion-row class="marginBottom1vh">You may contact us through our Call Center number : </ion-row>
+
+    <ion-row class="marginBottom1vh" (click)="callNow()">
+        <ion-col padding text-center>
+         
+            <span class="verticalAlignMiddle callSpan"><ion-icon name="call" ios="ios-call" md="md-call" ></ion-icon> &nbsp;647-226-7862</span>
+        </ion-col>
+    </ion-row>
+    <a href="tel:647-226-7862" id="hide" style="display:none"> </a>
+
+</ion-content>

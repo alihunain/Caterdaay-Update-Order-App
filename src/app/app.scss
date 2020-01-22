@@ -1,0 +1,305 @@
+// http://ionicframework.com/docs/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+.fontWeight900{
+    font-weight : 900;
+}
+
+.whiteLocationButtonDiv{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.whiteLocationButtonDiv div{
+    position: absolute;
+    width : 100%;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+}
+
+
+.whiteLocationButtonDiv div img{
+    width: calc(100vw - 50px);
+    margin: 5rem 0;
+}
+
+
+
+
+.themeRedBg{
+    background-color : #449D44 !important;
+}
+
+.themeGreenBg{
+    background-color : #449D44 !important;
+}
+
+.themeRed{
+    color : #ED202D !important;
+}
+
+.themeGreen{
+    color : #449D44 !important;
+}
+
+.colorGray{
+     color : #31373D !important;
+}
+
+.colorGold{
+     color : gold !important;
+}
+
+.colorLightGray{
+    color: #333333 !important;
+}
+
+.white{
+	color : white !important;
+}
+.colorBlack{
+	color : black !important;
+}
+
+.noconnection{
+    height: 100%;
+    width: 100%;
+    padding: 80% 0;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.66) !important;
+}
+
+.noconnection *{
+    color : white !important;
+}
+
+.noconnection ion-col{
+    color : white !important;
+    font-size : 1.25rem;
+}
+
+.noconnection ion-col ion-icon{
+    font-size: 4.2em;
+}
+
+
+
+ion-alert .alert-radio-group .alert-radio-label, ion-select .select-text{
+    text-transform: capitalize !important;
+}
+
+.logoList{
+    margin: 2rem 1rem !important;
+}
+
+.cartBottomRow{
+    position: absolute;
+    bottom: 0;
+    background: #449D44;
+    color: white;
+    padding: 1vh 3vw;
+    font-size: 1.75rem;
+    font-weight: 500;
+    width: 96%;
+    margin: 0 2%;
+    display: inline-block;
+    border-radius: 3px 3px 0 0;
+}
+
+.displayFlex{
+    display: flex;
+}
+
+
+.ion-ios-cart, .ion-md-cart, .ion-wp-cart{
+    font-size: 1.75em;
+}
+
+.cartBottomRow div{
+    display : table-cell;
+}
+
+.cartBadge.badge-ios{
+    position: absolute;
+    border-radius: 50%;
+    /*right: 0;
+    top: 0;
+    margin: 16px;*/
+    margin: 0;
+    top: 32px;
+    right: 32px;
+    padding: 3px 6px;
+    background-color: #449D44;
+}
+
+.cartBadge.badge-md, .cartBadge.badge-wp{
+    position: absolute;
+    border-radius: 50%;
+    /*right: 0;
+    top: 0;
+    margin: 0 16px;
+    */
+    right: 10px;
+    top: 17px;
+    padding: 3px 6px;
+    background-color: #449D44;
+}
+
+/*.menu-content! > page-offer{
+    z-index : 1 !important;
+}
+
+ion-content .scroll-content{
+    padding-bottom: 10vw !important;
+}
+*/
+
+
+
+
+
+
+
+
+
+
+.marginLeftAuto{
+    margin-left : auto
+}
+
+.displayGrid{
+	display: grid;
+}
+
+.displayFlex{
+	display: flex;
+}
+
+.toolbar-title{
+	white-space: inherit !important;
+}
+
+.cartIcon{
+	background-color: transparent;
+}
+
+.whiteSpaceInitial{
+    white-space: initial !important;
+}
+
+.checkbox-checked {
+    border-color: #ED202D !important;
+    background-color: #ED202D !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+/*
+.toast-ios, .toast-md{
+    top : 54px !important;
+}
+
+.toast-wp{
+    top : 46px !important;
+}*/
+
+
+
+
+
+
+
+
+
+
+
+
+.font1-75em{
+	font-size : 1.75em;
+}
+
+.marginRight5vw{
+    margin-right: 5vw;
+}
+
+.positionAbsolute{
+	position : absolute;
+}
+
+.padding0{
+	padding : 0 !important;
+}
+
+.width100{
+	width : 100% !important;
+}
+
+.height100{
+	height : 100% !important;
+}
+
+.margin0{
+	margin : 0 !important;
+}
+
+.fontWeight500{
+	font-weight : 500;
+}
+
+.fontWeight700{
+	font-weight : 700;
+}
+
+.font2vh{
+	font-size: 1.25rem !important;
+}
+
+.toolbar-background{
+	background: #449D44;
+}
+
+.toolbar-content .toolbar-title{
+	color: white !important;
+}
+
+buttons.bar-buttons{
+	color : white !important;
+}
+
+.bar-button{
+	color : white !important;
+}
+
+.padding2vw{
+	padding : 2vw;
+}
+
+.toolbar-content-md, .toolbar-content-wp{
+	display: inherit !important;
+}

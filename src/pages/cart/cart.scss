@@ -1,0 +1,134 @@
+page-cart {
+
+	ion-content{
+	    background: #E2E2E2 !important;
+	}
+
+	.minOrderRow{
+		padding: 1.5vh 3vw;
+	    margin: 1.5vh 0;
+	    background: peachpuff;
+	    font-weight: 600;
+	    border-radius: 4px;
+	}
+
+	.removeCouponButton{
+		font-size: 1.25rem;
+		padding: 1rem 0;
+		color: #989898;
+	    text-decoration: underline;
+	}
+
+	.removeCouponButton span{
+		margin-left: 10px;
+	    color: white;
+	    background: gray;
+		padding: 0px 4px;
+	    border-radius: 50%;
+	    text-align: center;
+	}
+
+	.discountPercent{
+		font-size: 1rem;
+	}
+
+	.textUnderline{
+		text-decoration: underline;
+	    text-decoration-color: gray;
+	}
+
+	.couponCode ion-input{
+		border: 1px solid gray;
+	}
+
+	.couponCode label{
+		font-size: 1.25rem;
+	    letter-spacing: 2px;
+		padding : 1rem;
+	}
+
+	.bgWhite{
+		background : white !important;
+	}
+
+	ion-item .item-inner{
+		border : none !important;
+	}
+	.qtyDiv{
+	    display: inline-flex;
+        height: 28px;
+	}
+
+	.qtyDiv ion-label, .qtyDiv ion-icon {
+	    text-align: center;
+	    font-weight: 600;
+	}
+
+	.qtyDiv ion-label{
+        font-size: 1.4rem;
+	}
+
+	.qtyDiv ion-icon{
+	    /*background: #31373d;
+	    border-radius: 50%;*/
+	    text-align: center;
+	    padding: 0.15rem 0.5rem !important;
+	    /*color: white;*/
+	    font-size : 1.4rem;
+	} 
+
+	.paddingTop9px{
+		padding-top : 9px;
+	}
+
+	.paddingLeft10px{
+		padding-left : 10px;
+	}
+
+	.height2px{
+		height : 2px;
+	}
+
+	ion-textarea{
+	    border-bottom: 1px solid #a0a0a0;
+	}
+
+	.button-default{
+		background-color : #449D44 !important;
+		margin-top: 2vh !important;
+	}
+
+	.deleteItemIcon{
+	    position: absolute;
+    	left: 4.5vw;
+	    margin: 1vh 0;
+	}
+
+	.applyButton{
+		background: #449D44;
+	    color: white;
+	    height: 2.25rem;
+	    margin: auto 5px;
+	    border-radius: 3px;
+	}
+
+	.cancelButton{
+	    color: white;
+	    background: gray;
+	    height: 2.25rem;
+	    margin: auto;
+	    border-radius: 3px;
+	}
+
+	.couponCode ion-input{
+		margin : 0 !important;
+		border-radius : 4px;
+	}
+
+	.couponCode ion-input .text-input{
+		margin : 0 !important;
+		padding: 6px !important;
+	}
+
+
+}

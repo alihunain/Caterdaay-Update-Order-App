@@ -1,0 +1,108 @@
+<!--
+Generated template for the AddressPage page.
+
+See http://ionicframework.com/docs/components/#navigation for more info on
+Ionic pages and navigation.
+-->
+<ion-header>
+
+	<ion-navbar>
+		<ion-title>Add Address</ion-title>
+	</ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding has-bouncing="true">
+	<ion-list>
+        <form role="form" [formGroup]="addressForm" (ngSubmit)="addAddress()">
+            <ion-item>
+                <ion-input formControlName="phoneno" type="tel" placeholder="Enter Mobile No"></ion-input>
+            </ion-item>
+            
+            <ion-item>
+                <ion-input formControlName="landline" type="tel" placeholder="Enter Landline No"></ion-input>
+            </ion-item>
+            
+            <ion-item class="diffInput">
+                <!-- <ion-input formControlName="address" type="text" placeholder="Enter a location"></ion-input> -->
+                <input id="pac-input" type="text" placeholder="Enter an Address" autocorrect="off" spellcheck="off" autocapitalize="off" #search class="form-control" formControlName="address" />
+            </ion-item>
+            
+       
+
+            <ion-item>
+                <ion-input formControlName="city" type="text" placeholder="City"></ion-input>
+            </ion-item>
+            
+            <ion-item>
+                <ion-input formControlName="country" type="text" placeholder="Country"></ion-input>
+            </ion-item>
+            
+            <ion-item>
+                <ion-input formControlName="zipcode" type="tel" placeholder="Postal Code"></ion-input>
+            </ion-item>
+
+            <button ion-button full [disabled]="!addressForm.valid">Add Address</button>
+        </form>
+    </ion-list>
+    <div id="map" style="height: 500px;"></div>
+</ion-content>
+
+
+
+
+
+
+
+
+            <!-- <div class="form-group">
+                <div class="col-sm-6">
+                    <input type="text" class="form-control"  formControlName="phoneno" placeholder="Phone No">
+                    <p style="padding:3px" *ngIf="formErrors.phoneno" class="alert alert-danger">
+                        {{ formErrors.phoneno }}
+                    </p>   
+                </div>     
+                <div class="col-sm-6 class-sm-model">
+                    <input type="text" class="form-control" formControlName="landline" placeholder="Landline">
+                    <p style="padding:3px" *ngIf="formErrors.landline" class="alert alert-danger">
+                        {{ formErrors.landline }}
+                    </p> 
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <input id="pac-input" type="text"
+                    placeholder="Enter a location" autocorrect="off" spellcheck="off" autocapitalize="off" #search class="form-control" formControlName="address" /> 
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <input type="text" class="form-control" formControlName="landmark" placeholder="Landmark">
+                </div>
+            </div>  
+            <div class="form-group">
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" formControlName="city" placeholder="City">
+                    <div style="padding:3px" *ngIf="formErrors.city" class="alert alert-danger">
+                        {{ formErrors.city }}
+                    </div>
+                </div>
+                <div class="col-sm-6 class-sm-model">
+                    <input type="text" class="form-control" formControlName="zipcode" placeholder="ZipCode">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <input type="text" class="form-control" formControlName="country" placeholder="Country">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-8 col-sm-4"> 
+                    <p>  
+                        <button type="submit" class="btn btn-success" [disabled]="!addressForm.valid">Save Address</button>
+                    </p>
+                </div>
+            </div>
+        </form> -->

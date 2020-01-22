@@ -1,0 +1,7 @@
+{
+    "name": "Order System App",
+    "integrations": {
+      "cordova": {}
+    },
+    "type": "ionic-angular"
+  }

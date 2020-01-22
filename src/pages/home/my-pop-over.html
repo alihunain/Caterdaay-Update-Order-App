@@ -1,0 +1,55 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Basic Detail</ion-title>
+        <ion-icon  padding-horizontal margin-right class = "white" float-right end name="cart" ios="ios-cart" md="md-cart" (click)="cartPage()"></ion-icon>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content padding has-bouncing="true" >
+	<!-- <ion-item> --><!--  class="popover-page" -->
+
+		<!-- <ion-row *ngIf = "kitchen.openclose == 'close' " class="openCloseDiv" text-center>
+        	<ion-col col-12 text-center text-uppercase> ** {{kitchen.openclose}} **</ion-col>
+        	<ion-col col-12 text-center>Your can Pre-order for later</ion-col>
+        </ion-row> -->
+
+		<!-- <ion-row class="whiteDiv" *ngIf = "kitchen.openinghours && kitchen.openinghours.length > 0">
+	        <ion-row class= "width100">
+	            <ion-col col-12><strong>Working Hours : </strong></ion-col>
+	        </ion-row>
+	        <hr class="width100 height2px">
+	        <ion-row padding-horizontal class= "width100">
+	        	<ion-col col-6><strong>Days</strong></ion-col>
+	        	<ion-col col-6><strong>Opening Hours</strong></ion-col>
+	        </ion-row>
+	        <ion-row *ngFor = "let eachday of kitchen.openinghours" class= "width100 paddingHorizontal6px">
+            	<ion-col col-5 text-capitalize><strong>{{eachday.name}}</strong></ion-col>
+	            <ion-col col-7>
+	            	<ion-row class = "width100" *ngFor = "let timeArr of eachday.times">
+	            		{{timeArr.open}} - {{timeArr.close}}
+	            	</ion-row>
+	            </ion-col>
+	        </ion-row>
+	    </ion-row> -->
+
+
+		<!-- <ion-row class="whiteDiv" *ngIf = "kitchen.minimumorder && kitchen.minimumorder != 'null'"><strong>Min Order Amount : &nbsp; </strong><span *ngIf = "kitchen && kitchen.currency">{{kitchen.currency}} &nbsp;</span> {{kitchen.minimumorder}}</ion-row> -->
+
+		<!-- <ion-row class="whiteDiv" *ngIf = "kitchen.mindeliveryime && kitchen.mindeliveryime != 'null'"><strong>Delivery Time : &nbsp; </strong>{{kitchen.preorderforlatertodays}} </ion-row> -->
+
+		<ion-row class="whiteDiv" *ngIf = "kitchen.preorderforlaterafterdays && kitchen.preorderforlaterafterdays != '1'"><strong>Pre-Order (Minimum Days) : </strong><span > &nbsp; After {{kitchen.preorderforlaterafterdays}} Days </span></ion-row>
+		<ion-row class="whiteDiv" *ngIf = "kitchen.preorderforlaterafterdays && kitchen.preorderforlaterafterdays == '1'"><strong>Pre-Order (Minimum Days) </strong><span > &nbsp; After {{kitchen.preorderforlaterafterdays}} Day </span></ion-row>
+		<ion-row class="whiteDiv" *ngIf = "kitchen.preorderforlatertodays"><strong>Pre-Order (Maximum Days) : &nbsp; </strong><span > Before {{kitchen.preorderforlatertodays}} Days </span></ion-row>
+		<!-- <ion-row class="whiteDiv" *ngIf = "kitchen.preorderforlater"><strong>Pre-Order for Later : &nbsp; </strong>Yes <span > &nbsp; (Before {{kitchen.preorderforlatertodays}} days) </span></ion-row> -->
+		
+		<!-- <ion-row class="whiteDiv" *ngIf = "!kitchen.preorderforlater"><strong>Pre-Order for Later : &nbsp; </strong>No</ion-row> -->
+		
+		<ion-row class="whiteDiv" *ngIf = "kitchen.restaurantMin != undefined"><strong>Catering Minimum Serving : &nbsp; </strong>{{kitchen.restaurantMin}}</ion-row>
+		<ion-row class="whiteDiv" *ngIf = "kitchen.restaurantMin != undefined"><strong>Catering Maximum Serving : &nbsp; </strong>{{kitchen.restaurantMax}}</ion-row>
+
+		<ion-row class="whiteDiv" *ngIf="cuisines && cuisines.length > 0"><strong>Cuisines : &nbsp; </strong><span *ngFor = "let cuisine of cuisines" text-capitalize> {{cuisine.name}},&nbsp; </span></ion-row>
+		
+		<ion-row class="whiteDiv" *ngIf="kitchen.offerings && kitchen.offerings.length > 0"><strong>Offerings : &nbsp; </strong><span *ngFor = "let offering of kitchen.offerings" text-capitalize> {{offering}},&nbsp; </span></ion-row>
+    <!-- </ion-item> -->
+</ion-content>

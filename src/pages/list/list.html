@@ -1,0 +1,80 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>All Caterers</ion-title>
+        <ion-icon  padding-horizontal margin-right class = "white" float-right end name="cart" ios="ios-cart" md="md-cart" (click)="cartPage()"></ion-icon>
+    </ion-navbar>
+</ion-header>
+
+<ion-content has-bouncing="true">
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+    <ion-row (click)="filterPage()" class = "topSearchRow">
+        <!-- <ion-searchbar disabled="true" id="input" style="caret-color: transparent;" [placeholder]="placeHolder"  (click)="filterPage()"></ion-searchbar> -->
+        <!-- <ion-icon *ngIf = "!filterOutput" name="funnel" ios="ios-funnel" md="md-funnel" class="funnelIcon funnelLightGray alignSelfCenter" (click)="filterPage()"></ion-icon> -->
+        <!-- <ion-icon *ngIf = "filterOutput" class="alignSelfCenter funnelIcon white" name="funnel"  ios="ios-funnel" md="md-funnel" (click)="filterPage()"></ion-icon> -->
+        <ion-col no-padding text-center text-uppercase    style="    padding: 9px;
+        color: white;
+        font-size: 15px;    ">  <ion-icon ios="ios-search" style="margin-right: 10px;" md="md-search"></ion-icon> <span>Search By Caterers</span></ion-col>
+    </ion-row>
+
+    <ion-list>
+        <ng-container *ngIf = "kitchenList && kitchenList.length > 0">
+            <!-- <ion-item *ngFor = "let kitchen of kitchenList" (click)="restaurantDetail(kitchen)">
+                <ion-row>
+                    <ion-col col-3 class = "height70px">
+                        <ion-row class="white resStatus" *ngIf = "kitchen.openclose &&  kitchen.openclose == 'close'"><ion-col no-padding text-center>Close</ion-col></ion-row>
+                        <img class="width100 height100" [src]="restroImage(kitchen.image[0])">
+                    </ion-col>
+
+                    <ion-col col-9>
+                        <h3 text-capitalize class="colorGray whiteSpaceInitial"><strong> {{kitchen.restaurantname}}</strong></h3>
+                        <h4 text-capitalize class="colorLightGray whiteSpaceInitial"><ion-icon name="pin" ios="ios-pin" md="md-pin"></ion-icon>  {{kitchen.city}}, {{kitchen.country}}</h4>
+                        <p *ngIf = "kitchen.rating">
+                            <span *ngFor = "let rate of rateArray; let i = index; ">
+                                <ion-icon *ngIf = "kitchen.rating >= rate" color = "danger" name="star" ios="ios-star" md="md-star"></ion-icon>
+                                
+                                <ion-icon *ngIf = "kitchen.rating < rate && kitchen.rating > i" color = "danger" name="star-half" ios="ios-star-half" md="md-star-half"></ion-icon>
+
+                                <ion-icon *ngIf = "kitchen.rating < rate && kitchen.rating <= i" name="star-outline" ios="ios-star-outline" md="md-star-outline"></ion-icon>
+                            </span>
+                        </p>
+                    </ion-col>
+                </ion-row>
+            </ion-item> -->
+
+
+
+
+            <ion-card *ngFor = "let kitchen of kitchenList" (click)="restaurantDetail(kitchen)">
+                <!-- <ion-row class="white resStatus" *ngIf = "kitchen.openclose" [ngClass] = "kitchen.openclose == 'close'? 'themeRedBg' : 'themeGreenBg' " >
+                    <ion-col no-padding text-center text-uppercase><strong>{{kitchen.openclose}}</strong></ion-col>
+                </ion-row> -->
+
+               
+                <ion-card-content no-padding >
+                  
+                    <ion-card-title>
+                        {{kitchen.restaurantname}}
+                        <span *ngIf = "kitchen.rating" float-right class ="font1-5rem">
+                            <ion-icon class = "colorGold" *ngIf = "kitchen.rating > 0" name="star" ios="ios-star" md="md-star"></ion-icon>&nbsp;<span class="colorGray"> {{kitchen.rating | number : '1.1-1'}}</span>
+                        </span> 
+                    </ion-card-title>
+                    <span *ngFor="let offer of kitchen.offerings" class="tag-span">{{offer}}</span>
+                    <p text-capitalize><ion-icon name="pin" ios="ios-pin" md="md-pin"></ion-icon> &nbsp;{{kitchen.city}}, {{kitchen.country}}</p>
+
+                </ion-card-content>
+                <img style="object-fit:cover" [src]="restroImage(kitchen.image[0])"/>
+            </ion-card>
+        </ng-container>
+
+        <ng-container *ngIf = "kitchenList && kitchenList.length == 0">
+            <ion-item text-center class="paddin40-16px">
+                <strong>No Restaurants/Chefs Found!</strong>
+            </ion-item>
+        </ng-container>
+    </ion-list>
+</ion-content>

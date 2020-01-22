@@ -1,0 +1,66 @@
+<!--
+  Generated template for the ReviewPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+	<ion-navbar>
+		<ion-title>Review</ion-title>
+		<ion-icon  padding-horizontal margin-right class = "white" float-right end name="cart" ios="ios-cart" md="md-cart" (click)="cartPage()"></ion-icon>
+	</ion-navbar>
+
+</ion-header>
+
+
+<ion-content has-bouncing="true" padding>
+
+	<ion-list>
+		<ion-row>
+			<ion-col text-center>
+				<strong>Order Packing Rating</strong>
+			</ion-col>
+		</ion-row>
+		<rating class="orderPacking" [(ngModel)]="rateOrderPacking" readOnly="true" max="5" emptyStarIconName="star-outline" halfStarIconName="star-half"
+		 starIconName="star"></rating>
+
+		<ion-row>
+			<ion-col text-center>
+				<strong>Delivery Time Rating</strong>
+			</ion-col>
+		</ion-row>
+		<rating class="deliveryTime" [(ngModel)]="rateDeliveryTime" readOnly="true" max="5" emptyStarIconName="star-outline" halfStarIconName="star-half"
+		 starIconName="star"></rating>
+
+		<ion-row>
+			<ion-col text-center>
+				<strong>Money Value Rating</strong>
+			</ion-col>
+		</ion-row>
+		<rating class="valueOfMoney" [(ngModel)]="rateValueOfMoney" readOnly="true" max="5" emptyStarIconName="star-outline" halfStarIconName="star-half"
+		 starIconName="star"></rating>
+	</ion-list>
+
+
+	<ion-list *ngIf="reviewRating && customerObj" class="colorBlack">
+		<ng-container *ngFor="let rvw of reviewRating.review">
+			<ion-row *ngIf="rvw.customerId && rvw.review != '' && rvw.review != null ">
+				<ion-col  col-3 no-padding>
+					<ion-avatar item-start>
+						<img style="object-fit:cover" [src]="customerImage(rvw.customerId.profilePic)">
+					</ion-avatar>
+				</ion-col>
+				<ion-col no-padding>
+					<div>
+						<strong *ngIf="rvw.customerId.firstname">{{rvw.customerId.firstname}} {{rvw.customerId.lastname}}</strong>
+						<strong *ngIf="!rvw.customerId.firstname">Anonymous</strong>
+						<!-- <span class="fontWeight400" float-right><ion-icon class="themeGreen" name="star" ios="ios-star" md="md-star"></ion-icon>4.5</span> -->
+					</div>
+					<p class="fontWeight400 font2vh">{{rvw.review}}</p>
+				</ion-col>
+			</ion-row>
+		</ng-container>
+	</ion-list>
+
+</ion-content>

@@ -1,0 +1,39 @@
+{
+  "_from": "cordova-android-support-gradle-release@1.4.4",
+  "_id": "cordova-android-support-gradle-release@1.4.4",
+  "_inBundle": false,
+  "_integrity": "sha512-DOwZ+MX0CBoagXV6cHqfQacVjsrDea8z2wuM427AIvi2eAFvojw85o1XMCdJ4kSDMbsUUaNPw12h7uY0m+rcvg==",
+  "_location": "/cordova-android-support-gradle-release",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "cordova-android-support-gradle-release@1.4.4",
+    "name": "cordova-android-support-gradle-release",
+    "escapedName": "cordova-android-support-gradle-release",
+    "rawSpec": "1.4.4",
+    "saveSpec": null,
+    "fetchSpec": "1.4.4"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-android-support-gradle-release/-/cordova-android-support-gradle-release-1.4.4.tgz",
+  "_shasum": "6a64db69f36c332727d95b421d53c25dfe99684d",
+  "_spec": "cordova-android-support-gradle-release@1.4.4",
+  "_where": "C:\\KLproject\\OrderSystem1",
+  "author": {
+    "name": "Dave Alden"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "xml2js": "~0.4.19"
+  },
+  "deprecated": false,
+  "description": "Cordova/Phonegap plugin to align various versions of the Android Support libraries specified by other plugins to a specific version",
+  "devDependencies": {},
+  "license": "MIT",
+  "name": "cordova-android-support-gradle-release",
+  "version": "1.4.4"
+}

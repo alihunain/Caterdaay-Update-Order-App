@@ -1,0 +1,267 @@
+page-profile {
+	
+	.basicSegment ion-item .item-inner{
+		padding : 0 !important;
+		border : none !important;
+	}
+
+	.basicSegment ion-item ion-label{
+		margin : 0 !important;
+		text-align: -webkit-center;
+	}
+
+	/*.basicSegment ion-avatar img{
+		width : 25% !important;
+		height : 25% !important;
+	}*/
+
+	.marginTop2vh{
+		margin-top : 2vh;
+	}
+
+	.cardImages{
+		height: 2rem;
+	    position: absolute;
+	    right: 2vw;
+	}
+
+	.paddingVertical0-5vh{
+		padding : 0.5vh 0;
+	}
+
+
+	.basicSegment ion-avatar{
+		width : 15rem !important;
+		height : 15rem !important;
+		margin : auto !important;
+		background-position: center;
+	    background-size: cover;
+	    background-repeat: no-repeat;
+	    border-radius: 50%;
+	}
+
+	.basicSegment ion-avatar img{
+		width: 100%;
+		height : 100%;
+	}
+
+	.profileImageIonItem{
+		display : block !important;
+	}
+
+
+	.fileContainer , .profileContainer {
+	    overflow: hidden;
+	    position: relative;
+	    height: 100%;
+	    width: 100%;
+	}
+
+	.fileContainer [type=file] , .profileContainer [type=file] {
+		filter: alpha(opacity=0);
+		width: 100%;
+	    height: 100%;
+		opacity: 0;
+		position: absolute;
+		right: 0;
+		text-align: right;
+		top: 0;
+	}
+
+	/* Example stylistic flourishes */
+
+	.fileContainer , .profileContainer {
+		padding: 3% 5%;
+        background: black;
+	    opacity: 0.65;
+	    color: white;
+	}
+
+
+	.paddingTop50{
+		padding-top : 50% !important;
+		font-size: 3.5rem;
+		width : 100%;
+	}
+
+	.profileContainer{
+		position: absolute;
+	    top: 0;
+	    width: 15rem !important;
+	    height: 15rem !important;
+	    border-radius: 50%;
+	}
+
+	.fileContainer [type=file] , .profileContainer [type=file] {
+		cursor: pointer;
+	}
+
+	.margin5-0{
+		margin : 5% 0;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+	.basicSegment ion-item{
+	    margin: 25% 0 10% 0 !important;
+	    background-color : transparent !important;
+	}
+
+	ion-content{
+		background-repeat: no-repeat;
+		background-position: center;
+	    background-size: cover;
+	}
+
+	ion-content:before{
+	    content: '';
+	    position: absolute;
+	    top: 0;
+	    right: 0;
+	    bottom: 0;
+	    left: 0;
+	    background-image: linear-gradient(to bottom right, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25));
+	    opacity: .6;
+	}
+
+	.basicSegment .changePass{
+		text-decoration : underline;
+	}
+
+	.basicSegment .editProfile{
+		position: absolute;
+	    top: 0;
+	    right: 0;
+	}
+
+	.profileCam{
+		border : 1px solid black;
+        margin-top: 16%;
+	    position: absolute;
+	    color: white;
+	    margin-left: 5vw;
+	    /* width: 25%; */
+	    font-size: 2rem;
+	    padding: 1rem;
+	    border-radius: 50%;
+	    /* -webkit-transform: translateX(-49%); 
+	    transform: translateX(-49%);*/
+	    background-color: rgba(0, 0, 0, 0.6);
+	}
+
+
+
+
+
+	.addressSegment .topButtons .button-default{
+		background-color : #449D44 !important;
+		font-size: 1.2rem;
+		border-radius : 0 !important;
+	}
+
+	.addressSegment .rightButton{
+		margin-left: auto;
+	}
+
+	.addressSegment ion-item{
+		/*border : none !important;*/
+	    background: #ececec !important;
+	    font-size: 1.5rem !important;
+        margin-bottom: 1vh !important;
+	}
+
+	.addressSegment ion-item .item-inner{
+		border : none !important;
+	}
+
+	.addressSegment .displayGrid{
+	    display: grid;
+	}
+
+	.addressSegment .displayGrid ion-icon{
+	    padding : 4px;
+	}
+
+	.addressSegment .font4vw{
+		font-size: 4vw;
+	}
+
+	.addressSegment .topButtons{
+		margin: 1vh 0;
+	}
+
+
+
+
+
+
+
+
+
+
+
+	.segment .segment-button{
+		border : none !important;
+		color: #c1c1c1 !important;
+		font-weight : 500;
+	}
+
+	.segment .segment-button.segment-activated{
+	    color: white !important;
+	    font-weight : 600;
+	    border-bottom: 1.5px solid white !important;
+	    background-color: transparent !important;
+	    opacity: 1;
+	    -webkit-transition: 100ms all linear;
+	    transition: 100ms all linear;
+	}
+
+	.segment .segment-button {
+	    flex: 1;
+	    padding : 0;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+	.defaultMakingButton{
+		background-color : #449D44 !important;
+		font-size: 1.2rem;
+		border-radius : 0 !important;
+	}
+
+	.greenBorder{
+		border : 4px solid green !important;
+	}
+
+	.grayBorder{
+		border : 2px solid gray !important;
+	}
+
+	.green{
+		color : green !important;
+	}
+
+	.gray{
+		color : gray !important;
+	}
+
+}

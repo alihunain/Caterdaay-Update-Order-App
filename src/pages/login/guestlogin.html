@@ -1,0 +1,27 @@
+<ion-content padding text-center class="white backgroundImage" [ngStyle]="{'background-image': 'url(assets/imgs/login-bgImage.jpg)'}">
+	<ion-avatar class="marginBottom4">
+        <img class="iconImage" [src]="iconImage()">
+    </ion-avatar>
+
+	<form role="form" [formGroup]="guestLoginForm" (ngSubmit)="login()" >	
+		<ion-item>
+			<ion-input formControlName="email" placeholder="Enter Email Address" type="text"></ion-input>
+		</ion-item>
+
+		<ion-row *ngIf="guestLoginForm.controls['email'].touched && guestLoginForm.controls['email'].dirty && guestLoginForm.controls['email'].invalid " class="white padding8-16px">
+			Please enter a valid Email ID.
+		</ion-row>
+
+		<button ion-button class="themeRedBg" full [disabled]="!guestLoginForm.valid">Continue</button>
+
+
+		<ion-row>
+			<ion-col padding-top text-center col-12>
+				<span class="themeGreen" (click)="loginPage()">
+					<strong>Sign In</strong>
+				</span>
+			</ion-col>
+		</ion-row>
+	</form>
+	<!-- <button ion-button class="themeGreenBg" full (click)="loginPage()">Login</button> -->
+</ion-content>

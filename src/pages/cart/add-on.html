@@ -1,0 +1,82 @@
+<ion-header>
+     
+    <ion-navbar>
+        
+        <ion-title>Add-On</ion-title>
+        <ion-buttons end>
+                <button ion-button icon-only (click)="cancel()">
+                    <ion-icon item-right name="ios-close-outline"></ion-icon>
+                </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+    <div class="content-grid;" style="margin-bottom: 10px;display: flex;padding: 10px;  border-bottom: 1px solid #d9d9d9;  align-items: center;" *ngFor="let addOn of addOns">
+     
+     <div class="obit-img" style="    object-fit: cover;
+      width: 20vw;
+      height: 20vw;
+      overflow: hidden;
+      border-radius: 50%;
+      display: inline-flex;
+      justify-content: center;
+      align-items: stretch;
+      margin: 0 10px;">
+       
+        <img *ngIf="addOn.image" class="orderThumbnails" src="{{imageUrl}}/{{addOn.image}}" />
+      </div>
+      <div style="width: 80%">
+    <div >
+      <h2 style="
+      text-align: left;">{{truck(addOn.name) }}</h2>
+    </div>
+      <div style="text-align: left;">{{truckDesc(addOn.description) }}</div>
+      <div  style="    display: flex;
+      justify-content: space-between;">
+          <div>
+           <div style="text-align: left;">Price :  {{addOn.finalprice  | number : '1.1-2'}} <b style="font-size: 9px;"> {{orderDetail.currency}} </b>
+           </div>
+      
+      <div  class="input-group" style="text-align: left;">Quantity : <input class="menuQty" type="number" name="" [value]="addOn.qty" min="0" #addOnQty (change) = "changeAddOns($event,addOnQty.value,addOn)" (keyup) = "changeAddOns($event,addOnQty.value,addOn)" style="width: 35px;border: 0;">
+         
+      </div>
+    </div>
+        <div> 
+          <button [ngClass]="{'display':addOn.add}" ion-button class="green" style="min-width: 20vw;" (click)="addToCart(addOn)">  Add To Cart </button>
+          <button [ngClass]="{'display':!addOn.add}" class="red" ion-button style="min-width: 30vw;" (click)="removeToCart(addOn)">  Remove From Cart </button>
+        </div>
+    </div>
+    </div>
+    <hr> 
+    
+    
+    </div>
+ 
+</ion-content>
+<ion-footer style="bottom: -5px !important;">
+        <div style="text-align: center;
+        background: white;
+        width: 100%;">
+            <div style="display: flex;padding: 10px;
+            justify-content: space-between;">
+               <span> Sub Total :</span> <span>{{total | number : '1.2-2'}}</span>
+            </div>
+            <hr style="background: #d9d9d9;">
+            <div style="display: flex;padding: 10px;
+            justify-content: space-between;">
+                <span> Add-On Total :</span> <span>{{addOnTotal | number : '1.2-2'}}</span>
+             </div>
+             <hr style="background: #d9d9d9;">
+             <div style="display: flex;padding: 10px;
+             justify-content: space-between;">
+                <span> Total :</span> <span>{{totalWithAddOns| number : '1.2-2'}}</span>
+             </div>
+            <ion-row>
+            <button ion-button class="green" full style="width: 100%;padding: 5px;" (click)="addOnCart()">
+                Checkout 
+            </button>
+        </ion-row>
+        </div>
+    </ion-footer>

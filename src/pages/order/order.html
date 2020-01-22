@@ -1,0 +1,60 @@
+<!--
+  Generated template for the OrderPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+        <ion-title>
+            <ion-icon class = "font1-2em" name="cart" item-start></ion-icon> &nbsp;Orders
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content padding has-bouncing="true">
+
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+
+    <ion-list>
+        <ion-item *ngFor="let order of orders" (click)="showDetail(order)">
+
+        	<ion-icon class="showDetail" name="arrow-dropright-circle" ios="ios-arrow-dropright-circle" md="md-arrow-dropright-circle"></ion-icon>
+
+
+            <ion-thumbnail class="orderThumbnail" item-start [ngStyle]="{'background-image': 'url(' + getOrderImage(order.resImage) +')'}">
+                <!-- <img [src]="getOrderImage(order.resImage)"> -->
+            </ion-thumbnail>
+            <ion-row *ngIf = "order.resName"><strong text-capitalize>{{order.resName}}</strong></ion-row>
+            <ion-row><strong>Order ID : {{order._id.substr(18,6)}} </strong></ion-row>
+            <!-- <ion-row class="whiteSpaceInitial">Restaurant Name </ion-row> -->
+            <ion-row class="whiteSpaceInitial">Total Amount : <strong><span *ngIf = "order.currency">{{order.currency}} </span>{{order.total | number : '1.2-2'}}</strong> </ion-row>
+            <ion-row>{{order.created_at | date:'medium' }}</ion-row>
+            
+            <ion-row *ngIf="order.status == 'received' && order.paymenttype == 'cash' "><strong> Order Placed </strong></ion-row>
+            
+            <ion-row *ngIf="order.status == 'received' && order.paymenttype == 'card' "><strong> Payment Received </strong></ion-row>
+
+            <ion-row *ngIf="order.status == 'accepted'"><strong>Preparing your Order</strong></ion-row>
+            
+            <ion-row *ngIf="order.status == 'rejected'"><strong>Order Rejected</strong></ion-row>
+
+            <ion-row *ngIf="(order.status == 'completed' || order.status == 'driverrejected') && (order.ordertype == 'home')"><strong>Order Prepared</strong>&nbsp;(Waiting for Driver!)
+            </ion-row>
+            <ion-row *ngIf="(order.status == 'completed' || order.status == 'driverrejected') && (order.ordertype == 'pick')"><strong>Order Prepared</strong>&nbsp;(Waiting for you!)
+            </ion-row>
+            <ion-row *ngIf="(order.status == 'driveraccepted') && (order.ordertype == 'home')"><strong>Order is on the Way</strong></ion-row>
+            <ion-row *ngIf="(order.status == 'driveraccepted') && (order.ordertype == 'pick')"><strong>You are on the Way to pick food</strong></ion-row>
+            <ion-row *ngIf="order.status == 'delivered'"><strong>Delivered</strong></ion-row>
+
+            <ion-row *ngIf="order.status == 'cancelled'"><strong>Order Cancelled</strong></ion-row>
+
+        </ion-item>
+    </ion-list>
+</ion-content>

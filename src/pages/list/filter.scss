@@ -1,0 +1,70 @@
+page-filter {
+
+	ion-item{
+		min-height: 1px !important;
+		border : none !important;
+	}
+
+	.heightAuto{
+		height : auto !important;
+	}
+
+	.range-md{
+		padding : 0 !important;
+	}
+
+	ion-item .item-inner{
+		border : none !important;
+	}
+
+	ion-item ion-label{
+		margin : 0 !important;
+	}
+
+	ion-list-header{
+	    min-height: 1px !important;
+	    border : none !important;
+	    margin-top : 0 !important;
+	}
+
+	ion-list-header ion-label{
+		margin : 0 !important;
+	}
+
+	ion-list-header .item-inner{
+		border-bottom: 2px solid #dedede;
+	}
+
+	/*.filterButton{
+		height : 2em !important;
+		margin-top: 2vh !important;
+	}*/
+
+	.fontSize1-2rem{
+		font-size : 1.2rem;
+	}
+
+	.chooseCountry .input-wrapper{
+		display : block !important;
+	}
+
+	.chooseCountry ion-select{
+		margin: 13px 0 !important;
+	}
+
+	rating.ratingStar ul {
+	    padding-left: 16px !important;
+
+	    &.rating li {
+	        margin-right: 1rem;
+	        background: none;
+	        color: gold;
+
+	        ion-icon {
+	          font-size: 2.5rem;
+	        }
+	    }
+	}
+
+
+}

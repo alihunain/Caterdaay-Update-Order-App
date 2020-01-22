@@ -1,0 +1,45 @@
+[
+    {
+        "outputFile": "C:\\KLproject\\OrderSystem1\\platforms\\android\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-bn\\values-bn.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 105,
+                    "endColumn": 210,
+                    "endOffset": 311
+                },
+                "from": {
+                    "file": "C:\\KLproject\\OrderSystem1\\platforms\\android\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-basement\\11.8.0\\res\\values-bn\\values.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 0,
+                        "startOffset": 283,
+                        "endColumn": 210,
+                        "endOffset": 493
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 316,
+                    "endColumn": 103,
+                    "endOffset": 415
+                },
+                "from": {
+                    "file": "C:\\KLproject\\OrderSystem1\\platforms\\android\\build\\intermediates\\exploded-aar\\com.google.firebase\\firebase-messaging\\11.8.0\\res\\values-bn\\values.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 0,
+                        "startOffset": 241,
+                        "endColumn": 99,
+                        "endOffset": 340
+                    }
+                }
+            }
+        ]
+    }
+]

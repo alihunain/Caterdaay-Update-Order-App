@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "C:\\KLproject\\OrderSystem1\\platforms\\android\\build\\intermediates\\res\\merged\\debug\\drawable-port-ldpi\\screen.png",
+        "source": "C:\\KLproject\\OrderSystem1\\platforms\\android\\res\\drawable-port-ldpi\\screen.png"
+    },
+    {
+        "merged": "D:\\OrderApp\\platforms\\android\\build\\intermediates\\res\\merged\\debug\\drawable-port-ldpi\\screen.png",
+        "source": "D:\\OrderApp\\platforms\\android\\res\\drawable-port-ldpi\\screen.png"
+    }
+]

@@ -1,0 +1,57 @@
+<ion-menu [content]="content">
+    <ion-header>
+        <ion-toolbar>
+            <ion-title>Menu</ion-title>
+        </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+
+        <ion-list class="logoList">
+            <img [src]="iconImage()">
+        </ion-list>
+
+
+        <ion-list>
+            <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+                {{p.title}}
+            </button>
+        </ion-list>
+    </ion-content>
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
+
+
+<ion-row *ngIf = "orderdetails" class = "cartBottomRow" (click)="cartPage()">
+    <div style="width: 75vw;">{{orderdetails.items.length + orderdetails.combo.length + orderdetails.package.length}} Serving |&nbsp;<span *ngIf = "orderdetails.currency">&nbsp;{{orderdetails.currency}} </span> {{orderdetails.subtotal.toFixed(2)}}</div>
+    <div style="width: 25vw;">CART</div>
+</ion-row>
+
+<ion-badge class="cartBadge" *ngIf = "orderdetails" item-end (click)="cartPage()"> {{orderdetails.items.length + orderdetails.combo.length + orderdetails.package.length}} </ion-badge>
+
+
+<ion-row *ngIf = "noConnection" class="noconnection" (tap)="retry($event)">
+  <ion-col no-padding col-12 text-center>
+    <ion-icon name ="refresh" ios="ios-refresh" md="md-refresh"></ion-icon>
+  </ion-col>
+  <ion-col no-padding col-12 text-center>Tap to Reload</ion-col>
+</ion-row>
+
+
+
+<div *ngIf = "showLocAllowButton" class="whiteLocationButtonDiv">
+    <div text-center>
+        <img [src]="iconImage()">
+        <button class="themeRedBg" ion-button (click) = "getLocation('onConnectFunction')">Allow Device location</button>
+        <p>**Need to access your location to show result. Please turn your device location ON</p>
+    </div>
+</div>
+<!-- <div *ngIf = "loadingContent" class="whiteLocationButtonDiv">
+    <div text-center>
+        <img [src]="iconImage()">
+        <p>**Fetching your location. please wait for a while</p>
+        <button class="themeRedBg" ion-button (click) = "getLocation('init')">Retry</button>
+    </div>
+</div> -->

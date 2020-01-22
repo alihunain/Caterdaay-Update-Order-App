@@ -1,0 +1,59 @@
+page-give-review {
+    .no-border{
+        border: 0px;
+    }
+    .flort-r{
+        float: right;
+    }
+    .scroll-content {
+
+        padding-top: 100px !important;
+    }
+
+
+
+  rating.orderPacking ul {
+    padding: 0px;
+    text-align : center;
+
+    &.rating li {
+        padding: 5px 10px !important;
+        background: none;
+        color: #ff0000;
+
+        ion-icon {
+          font-size: 2rem;
+        }
+      }
+  }
+
+  rating.deliveryTime ul {
+    padding: 0px;
+    text-align : center;
+
+    &.rating li {
+        padding: 5px 10px !important;
+        background: none;
+        color: #fd7b07;
+
+        ion-icon {
+          font-size: 2rem;
+        }
+      }
+  }
+
+  rating.valueOfMoney ul {
+    padding: 0px;
+    text-align : center;
+
+    &.rating li {
+        padding: 5px 10px !important;
+        background: none;
+        color: #ffb400;
+
+        ion-icon {
+          font-size: 2rem;
+        }
+      }
+  }
+}

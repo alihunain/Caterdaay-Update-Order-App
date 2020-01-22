@@ -1,0 +1,174 @@
+<!--
+  Generated template for the ProfilePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>My Profile</ion-title>
+        <ion-icon padding-top padding-horizontal margin-right class = "white" float-right end name="cart" ios="ios-cart" md="md-cart" (click)="cartPage()"></ion-icon>
+    </ion-navbar>
+</ion-header>
+
+<ion-content has-bouncing="true" padding [ngStyle]="{'background-image': 'url(' + restroImage() + ')'}">
+
+    <ion-segment [(ngModel)]="selectedSegment" (ionChange)="onSegmentChanged($event)">
+        <ion-segment-button value="basic">
+            Basic
+        </ion-segment-button>
+        <ion-segment-button value="address">
+            My Addresses
+        </ion-segment-button>
+        <ion-segment-button value="cards">
+            My Cards
+        </ion-segment-button>
+    </ion-segment>
+
+    <div [ngSwitch]="selectedSegment">
+        <ion-row *ngSwitchCase="'basic'" class="basicSegment">
+            <ion-row *ngIf = "currentCustomer"  class="width100 white">
+                <ion-item class="profileImageIonItem" no-padding>
+                    <!-- <ion-avatar class="marginBottom4">
+                        <span class="profileCam"><ion-icon name="camera" ios="ios-camera" md="md-camera"></ion-icon></span>
+                    </ion-avatar> -->
+
+                    <ion-avatar item-start [ngStyle]="{'background-image': 'url(' + customerImage(currentCustomer.profilePic) + ')'}"> 
+                        <!-- <img [src]="customerImage(currentCustomer.profilePic)"> -->
+                        <ion-row class="profileContainer" text-center>
+                            <ion-icon (click)="presentActionSheet()" class="paddingTop50" name="camera" ios="ios-camera" md="md-camera"></ion-icon>
+                            <!-- <input type="file" accept="image/*" name="single" ng2FileSelect [uploader]="uploader" (change)="addMedia($event,'profilePic')"/> -->
+                        </ion-row>
+
+                        <!-- <ion-buttons> --><!-- -->
+                        <!-- </ion-buttons> -->
+                    </ion-avatar>
+                    <!-- <button *ngIf="lastImage !== null" ion-button (click)="uploadImage()"> Upload </button> -->
+                    <h2 class="white fontWeight600">{{currentCustomer.username}}</h2>
+                    <!-- <p class="white">{{currentCustomer.email}}</p> -->
+                    <span class="editProfile" (click)="goToUpdateProfile()">
+                    	<ion-icon class="white" name="create" ios="ios-create" md="md-create"></ion-icon>
+                    </span>
+                </ion-item>
+
+                <ion-row class="font14 width100">
+                    <ion-col col-1>
+                        <ion-icon name="person" ios="ios-person" md="md-person" item-start></ion-icon>
+                    </ion-col>
+                    <ion-col col-4 class="fontWeight600">Name:</ion-col>
+                    <ion-col col-7 text-capitalize>{{currentCustomer.firstname}} {{currentCustomer.lastname}}</ion-col>
+                </ion-row>
+
+                <ion-row *ngIf = "currentCustomer.homephone" class="font14 width100">
+                    <ion-col col-1>
+                        <ion-icon name="call" ios="ios-call" md="md-call" item-start></ion-icon>
+                    </ion-col>
+                    <ion-col col-4 class="fontWeight600">Contact No :</ion-col>
+                    <ion-col col-7>{{currentCustomer.homephone}}</ion-col>
+                </ion-row>
+
+                <ion-row *ngIf = "currentCustomer.cellphone" class="font14 width100">
+                    <ion-col col-1>
+                        <ion-icon name="call" ios="ios-call" md="md-call" item-start></ion-icon>
+                    </ion-col>
+                    <ion-col col-4 class="fontWeight600">Mobile No :</ion-col>
+                    <ion-col col-7>{{currentCustomer.cellphone}}</ion-col>
+                </ion-row>
+                
+                <ion-label text-right>
+                    <span class="changePass" (click)="goToChangePassword()">Change Password?</span>
+                </ion-label>
+            </ion-row>
+        </ion-row>
+
+        <ion-row *ngSwitchCase="'address'" class="addressSegment">
+            
+            <ion-row class= "topButtons width100">
+                <button ion-button (click) = "getCurrentLocation()">Current Location</button>
+            </ion-row>
+
+            <ion-list class="width100" *ngIf = "currentCustomer.customeraddresses && currentCustomer.customeraddresses.length > 0">
+                <ion-item *ngFor = "let adrs of currentCustomer.customeraddresses; let i = index; " [ngClass] = "adrs.default?'greenBorder':'grayBorder'">
+                    <ion-row class="width100">
+                        <ion-col col-11 no-padding class="whiteSpaceInitial">
+                            <ion-row class= "width100"><strong>Address : </strong>{{adrs.address}}, {{adrs.city}}, {{adrs.country}}</ion-row>
+                            <ion-row *ngIf = "adrs.landmark" class= "width100"><strong>Landmark : </strong>{{adrs.landmark}}</ion-row>
+                            <ion-row class= "width100"><strong>City : </strong>{{adrs.city}}</ion-row>
+                            <ion-row class= "width100"><strong>Country : </strong>{{adrs.country}}</ion-row>
+                            <ion-row class= "width100"><strong>Postal Code : </strong>{{adrs.zipcode}}</ion-row>
+                            <ion-row *ngIf = "adrs.landline" class= "width100"><strong>Landline : </strong>{{adrs.landline}}</ion-row>
+                            <ion-row *ngIf = "adrs.phoneno" class= "width100"><strong>Phone No : </strong>{{adrs.phoneno}}</ion-row>
+                        </ion-col>
+
+                        <ion-col col-1 no-padding class="displayGrid font4vw">
+                            <ion-icon name="create" ios="ios-create" md="md-create" class= "themeGreen" (click)="editAddress(adrs,i)"></ion-icon>
+                            <ion-icon name="trash" ios="ios-trash" md="md-trash" color = "danger" (click)="spliceAddress(i)"></ion-icon>
+                        </ion-col>
+    
+                        <ion-col col-12 no-padding>
+                            <!-- <button float-right class= "defaultMakingButton" *ngIf = "!adrs.default" ion-button (click)="makeDefault(i,'address')">Mark as Default</button> -->
+                            <strong float-right *ngIf = "adrs.default">Default Address</strong>
+                        </ion-col>
+                    </ion-row>
+
+
+                </ion-item>
+            </ion-list>
+
+            <ion-list class="width100" *ngIf = "currentCustomer.customeraddresses && currentCustomer.customeraddresses.length == 0">
+                <ion-row padding-vertical class = "white">
+                    <ion-col text-center class = "white">No Record Found</ion-col>
+                </ion-row>
+            </ion-list>
+
+            <ion-row class= "topButtons width100">
+                <button ion-button full (click)="addAddressPage()">Add Address</button>
+            </ion-row>
+        </ion-row>
+
+        <ion-row *ngSwitchCase="'cards'" class="addressSegment">
+
+            <ion-list class="width100 marginTop2vh" *ngIf = "currentCustomer.cardinfo && currentCustomer.cardinfo.length > 0">
+                <ion-item *ngFor = "let card of currentCustomer.cardinfo; let i=index " [ngClass] = "card.default?'greenBorder':'grayBorder'">
+                    <ion-row class="width100">
+                        <ion-col col-11 no-padding class="whiteSpaceInitial">
+                            <ion-row text-capitalize class= "width100 paddingVertical0-5vh"><strong>Card Type : </strong>&nbsp;{{card.cardtype}}
+                            </ion-row>
+                            <ion-row class= "width100 paddingVertical0-5vh"><strong>Card No : </strong>&nbsp;{{card.cardnumber}}</ion-row>
+            
+                        </ion-col>
+
+                        <ion-col col-1 no-padding class="displayGrid font4vw">
+                         
+
+                            <ion-icon name="trash" ios="ios-trash" md="md-trash" color = "danger" (click)="spliceCard(i)"></ion-icon>
+                        </ion-col>
+
+                        <ion-col col-12>
+                            <!-- <button float-right class= "defaultMakingButton" *ngIf = "!card.default" ion-button (click)="makeDefault(i,'card')">Mark as Default</button> -->
+                            <strong float-right *ngIf = "card.default">Default Card</strong>
+                        </ion-col>
+                    </ion-row>
+
+
+                </ion-item>
+            </ion-list>
+
+            <ion-list padding class="width100" *ngIf = "currentCustomer.cardinfo && currentCustomer.cardinfo.length == 0">
+                <ion-row padding-vertical class = "white">
+                    <ion-col text-center class = "white">No Record Found</ion-col>
+                </ion-row>
+            </ion-list>
+
+            <ion-row class= "topButtons width100">
+                <button ion-button full (click)="addCardsPage()">Add Cards</button>
+            </ion-row>
+        </ion-row>
+
+    </div>
+
+
+</ion-content>

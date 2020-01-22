@@ -1,0 +1,45 @@
+[
+    {
+        "outputFile": "C:\\KLproject\\OrderSystem1\\platforms\\android\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-mk\\values-mk.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 105,
+                    "endColumn": 195,
+                    "endOffset": 296
+                },
+                "from": {
+                    "file": "C:\\KLproject\\OrderSystem1\\platforms\\android\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-basement\\11.8.0\\res\\values-mk\\values.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 0,
+                        "startOffset": 283,
+                        "endColumn": 195,
+                        "endOffset": 478
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 301,
+                    "endColumn": 103,
+                    "endOffset": 400
+                },
+                "from": {
+                    "file": "C:\\KLproject\\OrderSystem1\\platforms\\android\\build\\intermediates\\exploded-aar\\com.google.firebase\\firebase-messaging\\11.8.0\\res\\values-mk\\values.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 0,
+                        "startOffset": 241,
+                        "endColumn": 99,
+                        "endOffset": 340
+                    }
+                }
+            }
+        ]
+    }
+]

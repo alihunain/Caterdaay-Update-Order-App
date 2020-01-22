@@ -1,0 +1,51 @@
+<!--
+Generated template for the OfferPage page.
+
+See http://ionicframework.com/docs/components/#navigation for more info on
+Ionic pages and navigation.
+-->
+<ion-header>
+
+	<ion-navbar>
+		<ion-title>Offer</ion-title>
+        <ion-icon padding-top padding-horizontal margin-right class = "white" float-right end name="cart" ios="ios-cart" md="md-cart" (click)="cartPage()"></ion-icon>
+	</ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding has-bouncing="true">
+	<ion-list *ngIf = "offer && offer.length > 0">
+        <ng-container *ngFor = "let ofr of offer">
+            <ion-item *ngIf = "ofr.valid" no-padding>
+                <ion-row>
+                    <ion-col col-3 class="displayGrid font4vw" text-center>
+                        <!-- <ion-icon name="thumbs-up" ios="ios-thumbs-up" md="md-thumbs-up"></ion-icon> -->
+                        <div class="width100 fontWeight700" *ngIf="ofr.type == 'Price'">
+                            <span *ngIf = "kitchen && kitchen.currency">{{kitchen.currency}}</span><br>{{ofr.percentorpricevalue}}<br>OFF
+                        </div>
+                        <div class="width100 fontWeight700" *ngIf="ofr.type == 'Percent'">
+                            {{ofr.percentorpricevalue}}<br>%<br>OFF
+                        </div>
+                    </ion-col>
+
+                    <ion-col>
+                        <!-- <ion-row class= "width100">Title : <strong>{{ofr.name}}</strong></ion-row> -->
+                        <p><strong>{{ofr.name}}</strong></p>
+                        <ion-row class= "width100">Coupon Code : <strong>{{ofr.couponcode}}</strong></ion-row>
+                        <ion-row class= "width100">In Date : <strong>{{ofr.indate | date : 'mediumDate'}}</strong></ion-row>
+                        <ion-row class= "width100">Expiry Date : <strong>{{ofr.expirydate | date : 'mediumDate'}}</strong></ion-row>
+                    </ion-col>
+                </ion-row>
+            </ion-item>
+        </ng-container>
+    </ion-list>
+
+    <ion-list *ngIf = "offer && offer.length == 0">
+        <ion-item no-padding>
+            <ion-row>
+                No Offer Available!
+            </ion-row>
+        </ion-item>
+    </ion-list>
+</ion-content>

@@ -1,0 +1,86 @@
+page-addcards{
+	form .button-default{
+		background-color : #449D44 !important;
+		border-radius : 0 !important;
+	    margin-top: 10vh;
+	}
+
+	ion-select button.item-cover{
+	    position: inherit !important;
+	    width: auto !important;
+	}
+
+	ion-item{
+	    min-height: auto !important;
+	    border : none !important;
+	}
+
+	ion-item .item-inner{
+	    border : none !important;
+	}
+
+	/*ion-label{
+		margin : 0 !important;
+	}*/
+
+	.expDateRow ion-label{
+	    padding: 13px 0;
+	}
+
+	.expDateRow .select-wp {
+	    flex: inherit !important;
+	}
+
+	.cardImages{
+		height: 2rem;
+	    position: absolute;
+	    right: 2vw;
+	}
+
+	.marginBottom1rem{
+		margin-bottom : 2rem;
+		display: block;
+	}
+
+	.cardNoError{
+	    background: rgba(49, 55, 61, 0.29);
+	    padding: 5px 10px;
+	    font-size: 1.1rem;
+	    border-radius: 3px;
+        margin: 0.5rem 0 2rem 0;
+	}
+
+
+	.cardRadio ion-item{
+	    background: whitesmoke;
+	    border: 1px solid #488aff !important;
+		margin: 2% !important;
+	    width: 96% !important;
+	    padding: 0 1vh !important;
+	}
+
+	.cardRadio ion-item .item-inner{
+	    padding: 0 8px !important;
+	    border : none !important;
+	}
+
+	.cardRadio ion-item ion-radio{
+		align-self : baseline;
+	}
+
+	ion-input{
+	    border: 1px solid #488aff;
+	    border-radius: 2px;
+	    padding: 0 6px;
+	}
+
+	/*ion-input.cardNo{
+		flex : none !important;
+		width : 65% !important;
+	}
+
+	ion-input.cvvNo{
+		flex : none !important;
+		width : 35% !important;
+	}*/
+}

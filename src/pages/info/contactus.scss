@@ -1,0 +1,48 @@
+page-contactus {
+
+	form .button-default{
+		background-color : #449D44 !important;
+		height : 2em !important;
+		/*margin-top: 10vh !important;*/
+	}
+
+	form{
+		margin-bottom : 5rem;
+	}
+
+	form .text-input{
+	    border-bottom: 1px solid #e0e0e0;
+	}
+
+	hr{
+	    margin: 3vh 0 !important;
+	    height: 2px !important;
+	}
+
+	.marginBottom1vh{
+		margin-bottom: 1vh;
+	}
+
+	.color-gray{
+		color : gray;
+	}
+
+	.verticalAlignMiddle ion-icon{
+		vertical-align: middle;
+	}
+
+	.alignItemsCenter{
+		align-items: center;
+	}
+
+	.alignItemsCenter ion-icon{
+		font-size : 3.5rem;
+	}
+
+	.callSpan{
+		padding: 10px;
+	    border: 2px solid gray;
+	    border-radius: 4px;
+	}
+
+}

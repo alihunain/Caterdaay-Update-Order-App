@@ -1,0 +1,169 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Cart</ion-title>
+        <!-- <ion-icon padding-horizontal class = "white" float-right end name="cart" ios="ios-cart" md="md-cart"></ion-icon> -->
+    </ion-navbar>
+</ion-header>
+
+<ion-content has-bouncing="true">
+
+	<ion-row *ngIf = "!orderdetails || (orderdetails.items && orderdetails.items.length == 0 && orderdetails.combo && orderdetails.combo.length == 0 && orderdetails.package && orderdetails.package.length == 0 )" padding class = "bgWhite colorLightGray">
+		<ion-col padding><strong>Cart is Empty!</strong></ion-col>
+	</ion-row>
+
+	<!-- kitchen &&  -->
+	
+	<ion-row *ngIf = "kitchen"><!-- orderdetails && ((orderdetails.items && orderdetails.items.length > 0) || (orderdetails.combo && orderdetails.combo.length > 0) || (orderdetails.package && orderdetails.package.length > 0)) -->
+        <ion-col col-4 style="background-position: center;background-repeat: no-repeat;background-size: cover;" [ngStyle]="{'background-image': 'url(' + restroImage(kitchen.image[0]) + ')'}">
+            <!-- <img [src]="restroImage(kitchen.image[0])"> -->
+        </ion-col>
+        <ion-col col-8>
+	        <h5 class="colorGray"><strong>{{kitchen.restaurantname}}</strong></h5>
+	        <div class="colorLightGray">{{kitchen.city}}, {{kitchen.country}}</div>
+	    </ion-col>
+    </ion-row>
+
+    <!-- kitchen &&  -->
+
+    <ion-row *ngIf = "orderdetails &&( (orderdetails.items && orderdetails.items.length > 0) || (orderdetails.combo && orderdetails.combo.length > 0) || (orderdetails.package && orderdetails.package.length > 0))" padding-top padding-left class = "bgWhite">
+	    <ion-row *ngIf = "orderdetails.items.length > 0" class="width100">
+	    	<ion-row><strong>Daily Menu Items</strong></ion-row>
+		    <ion-row *ngFor = "let item of orderdetails.items; let i = index; " padding-horizontal class="width100">
+		    	<ion-col col-5 col-sm-7>
+		    		{{item.name}}
+		    	</ion-col>
+		    	<ion-col col-3 col-sm-2 class="qtyDiv font2vh colorBlack">
+					<ion-icon class="fontWeight700" name="remove" ios="ios-remove" md="md-remove" (click)="decreaseQuantity(i,'item')"></ion-icon>
+					<ion-label no-margin class="quantity width100 height100">{{item.qty}}</ion-label>
+					<ion-icon class="fontWeight700" name="add" ios="ios-add" md="md-add" (click)="increaseQuantity(i,'item')"></ion-icon>
+		    	</ion-col>
+		    	<ion-col text-right col-4 col-sm-3 class="colorLightGray font2vh colorBlack paddingLeft10px">
+		    		<span *ngIf = "orderdetails.currency">{{orderdetails.currency}}</span> {{item.qty * item.price | number : '1.2-2'}}
+		    	</ion-col>
+		    	<ion-icon (click)="delete(i,item.name,'Item')" class="deleteItemIcon" color = "danger" name="trash" ios="ios-trash" md="md-trash"></ion-icon>
+		    </ion-row>
+	    </ion-row>
+	    <ion-row *ngIf = "orderdetails.combo.length > 0" class="width100">
+	    	<ion-row><strong>Serving Items</strong></ion-row>
+		    <ion-row *ngFor = "let combo of orderdetails.combo; let i = index; " padding-horizontal class="width100">
+		    	<ion-col col-5>
+		    		{{combo.name}}
+		    	</ion-col>
+		    	<ion-col col-3 class="qtyDiv font2vh colorBlack">
+					<!-- <ion-icon class="fontWeight700" name="remove" ios="ios-remove" md="md-remove" (click)="decreaseQuantity(i,'combo')"></ion-icon> -->
+					<ion-label no-margin class="quantity width100 height100">{{combo.qty}}</ion-label>
+					<!-- <ion-icon class="fontWeight700" name="add" ios="ios-add" md="md-add" (click)="increaseQuantity(i,'combo')"></ion-icon> -->
+		    	</ion-col>
+		    	<ion-col text-right col-4 class="colorLightGray font2vh colorBlack paddingLeft10px">
+		    		<span *ngIf = "orderdetails.currency">{{orderdetails.currency}}</span> {{combo.qty * combo.finalcomboprice | number : '1.2-2'}}
+		    	</ion-col>
+
+		    	<ion-icon (click)="delete(i,combo.name,'Combo')" class="deleteItemIcon" color = "danger" name="trash" ios="ios-trash" md="md-trash"></ion-icon>
+		    </ion-row>
+	    </ion-row>
+	    <ion-row *ngIf = "orderdetails.package.length > 0" class="width100">
+	    	<ion-row><strong>Weekly Package(s)</strong></ion-row>
+		    <ion-row *ngFor = "let pkg of orderdetails.package; let i = index; " padding-horizontal class="width100">
+		    	<ion-col col-5>
+		    		{{pkg.name}} <!-- <small>&nbsp; X {{pkg.qty}}</small> -->
+		    	</ion-col>
+		    	<ion-col col-3 class="qtyDiv font2vh colorBlack">
+					<ion-icon class="fontWeight700" name="remove" ios="ios-remove" md="md-remove" (click)="decreaseQuantity(i,'pkg')"></ion-icon>
+					<ion-label no-margin class="quantity width100 height100">{{pkg.qty}}</ion-label>
+					<ion-icon class="fontWeight700" name="add" ios="ios-add" md="md-add" (click)="increaseQuantity(i,'pkg')"></ion-icon>
+		    	</ion-col>
+		    	<ion-col text-right col-4 class="colorLightGray font2vh colorBlack paddingLeft10px">
+		    		<span *ngIf = "orderdetails.currency">{{orderdetails.currency}}</span> {{pkg.qty * pkg.packageprice | number : '1.2-2'}}
+		    	</ion-col>
+
+		    	<ion-icon (click)="delete(i,pkg.name,'Package')" class="deleteItemIcon" color = "danger" name="trash" ios="ios-trash" md="md-trash"></ion-icon>
+		    </ion-row>
+	    </ion-row>
+	</ion-row>
+
+	<ion-row *ngIf = "kitchen && orderdetails" padding class= " bgWhite">
+		<!--  && ((orderdetails.items && orderdetails.items.length > 0) || (orderdetails.combo && orderdetails.combo.length > 0) || (orderdetails.package && orderdetails.package.length > 0)) -->
+		<!-- <ion-col *ngIf = "kitchen" col-12 no-padding padding-horizontal>
+			<strong>{{kitchen.restaurantname}},</strong>
+		</ion-col>
+		<ion-col *ngIf = "kitchen" col-12 no-padding padding-horizontal>
+			<strong>{{kitchen.city}}, {{kitchen.country}}</strong>
+		</ion-col> -->
+
+		<ion-row *ngIf = "orderdetails" padding-horizontal class="width100 colorLightGray">
+			<ion-col col-7>Total</ion-col>
+			<ion-col text-right><span *ngIf = "orderdetails.currency">{{orderdetails.currency}}</span> {{orderdetails.subtotal | number : '1.2-2'}}</ion-col>
+		</ion-row>
+
+		<!-- <ion-row *ngIf = "orderdetails.discount" padding-horizontal class="width100 colorLightGray">
+			<ion-col col-7>Discount &nbsp;<span class="font2vh" *ngIf = "orderdetails.coupon && orderdetails.coupon.type == 'Percent'">({{orderdetails.coupon.percentorpricevalue}} %)</span></ion-col>
+			<ion-col text-right><span *ngIf = "orderdetails.currency">{{orderdetails.currency}}</span> {{orderdetails.discount | number : '1.2-2'}}</ion-col>
+		</ion-row> -->
+		
+		<ion-row *ngIf = " ((orderdetails.items && orderdetails.items.length > 0) || (orderdetails.combo && orderdetails.combo.length > 0) || (orderdetails.package && orderdetails.package.length > 0))" padding-horizontal class="width100 colorLightGray">
+			<ion-col col-7>Delivery Charges </ion-col>
+			<ion-col text-right><span *ngIf = "orderdetails.currency">{{orderdetails.currency}}</span> {{orderdetails.DeliveryCharges | number : '1.2-2'}}</ion-col>
+		</ion-row>
+
+		<ion-row *ngIf = "orderdetails.tax && ((orderdetails.items && orderdetails.items.length > 0) || (orderdetails.combo && orderdetails.combo.length > 0) || (orderdetails.package && orderdetails.package.length > 0))" padding-horizontal class="width100 colorLightGray">
+			<ion-col col-7>Tax &nbsp;<span class="font2vh">({{orderdetails.tax}} %)</span></ion-col>
+
+			<ion-col text-right><span *ngIf = "orderdetails.currency">{{orderdetails.currency}}</span> {{taxAmmount | number : '1.2-2'}}</ion-col>
+		</ion-row>
+
+
+
+		<hr class="width100 height2px">
+		<ion-row padding-horizontal class="width100 colorLightGray">
+			<ion-col col-7 class="colorGray"><strong>Pay</strong></ion-col>
+
+			<ion-col text-right><span *ngIf = "orderdetails.currency">{{orderdetails.currency}}</span> {{orderdetails.total | number : '1.2-2'}}</ion-col>
+			
+			<!-- <ion-col text-right *ngIf = "!orderdetails.discount"><span *ngIf = "orderdetails.currency">{{orderdetails.currency}}</span> {{orderdetails.subtotal + (orderdetails.subtotal*(orderdetails.tax/100)) | number : '1.2-2'}}</ion-col>
+			
+			<ion-col text-right *ngIf = "orderdetails.discount"><span *ngIf = "orderdetails.currency">{{orderdetails.currency}}</span> {{orderdetails.subtotal - orderdetails.discount + ((orderdetails.subtotal - orderdetails.discount)*(orderdetails.tax/100)) | number : '1.2-2'}}</ion-col> -->
+		</ion-row>
+
+		<ion-row class="width100 couponCode" *ngIf = "orderdetails && ((orderdetails.items && orderdetails.items.length > 0) || (orderdetails.combo && orderdetails.combo.length > 0) || (orderdetails.package && orderdetails.package.length > 0))">
+
+			<!-- <ion-row class="width100" *ngIf = "noCode && (orderdetails.coupon == 'undefined' || orderdetails.coupon == null || orderdetails.coupon == '') ">
+				<ion-col class="textUnderline font2vh" (click)="showField()">Apply Coupon Code?</ion-col>
+			</ion-row> -->
+
+			<ion-row padding-horizontal padding-top class="width100" *ngIf = "typeCode">
+				<ion-input class="bgWhite" type="text" maxlength="10" value="" [(ngModel)]="couponCode"></ion-input>
+				<button class="applyButton" [disabled] = "checkCouponCode()" (click)="applyCode()">Apply</button>
+				<button class="cancelButton" (click)="hideField()">Cancel</button>
+			</ion-row>
+
+			<ion-row padding-horizontal padding-top class="width100" *ngIf = "haveCode || (orderdetails.coupon)">
+				<label>{{couponCode}}
+				</label>
+				<!-- <button class="cancelButton" (click)="removeCode()">Remove</button> -->
+				<ion-row class="removeCouponButton" *ngIf = "haveCode || (orderdetails.coupon)">Coupon Code Applied <span class="" (click)="removeCode()"> x </span></ion-row>
+			</ion-row>
+		</ion-row>
+	</ion-row>
+
+
+	<ion-row *ngIf = "kitchen && orderdetails && ((orderdetails.items && orderdetails.items.length > 0) || (orderdetails.combo && orderdetails.combo.length > 0) || (orderdetails.package && orderdetails.package.length > 0))" padding class="bgWhite">
+		<!-- <ion-item>
+			<ion-label stacked>Leave a note for the chef...</ion-label>
+			<ion-textarea [(ngModel)] = "specialInstruction" rows="3" type="text"></ion-textarea>
+		</ion-item> -->
+
+		<ion-row class = "width100 minOrderRow" *ngIf = "minConditionSatisfy">
+			Minimum Serving Allow is&nbsp;{{kitchen.restaurantMin}}&nbsp; Person's 
+		</ion-row>
+        <hr>
+		<button ion-button full (click)="checkoutPage()" >Checkout</button>
+		<!-- [disabled]="checkDisable()" -->
+	</ion-row>
+
+
+
+
+</ion-content>

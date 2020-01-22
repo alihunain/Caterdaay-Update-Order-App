@@ -1,0 +1,74 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Edit Profile</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content has-bouncing="true" padding> <!-- [ngStyle]="{'background-image': 'url(' + restroImage() + ')'}"> -->
+    <ion-list>
+        <form role="form" [formGroup]="profileForm" (ngSubmit)="update()">
+            <ion-item>
+                <ion-label>
+                    <ion-icon name="mail" ios="ios-mail" md="md-mail"></ion-icon>
+                </ion-label>
+                <ion-input formControlName="email" type="text" placeholder="Email"></ion-input>
+            </ion-item>
+            <!-- <ion-item>
+                <ion-label>
+                    <ion-icon name="person" ios="ios-person" md="md-person"></ion-icon>
+                </ion-label>
+                <ion-input formControlName="username" type="text" disabled="true" placeholder="Username"></ion-input>
+            </ion-item> -->
+            <ion-item>
+                <ion-label>
+                    <ion-icon name="person" ios="ios-person" md="md-person"></ion-icon>
+                </ion-label>
+                <ion-input formControlName="firstname" type="text" placeholder="First Name"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label>
+                    <ion-icon name="person" ios="ios-person" md="md-person"></ion-icon>
+                </ion-label>
+                <ion-input formControlName="lastname" type="text" placeholder="Last Name"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label>
+                    <ion-icon name="call" ios="ios-call" md="md-call"></ion-icon>
+                </ion-label>
+                <ion-input formControlName="homephone" type="tel" placeholder="Home Phone No."></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label>
+                    <ion-icon name="call" ios="ios-call" md="md-call"></ion-icon>
+                </ion-label>
+                <ion-input formControlName="cellphone" type="tel" placeholder="Mobile No."></ion-input>
+            </ion-item>
+            <!-- <ion-item> -->
+                <ion-row class="genderRadio" radio-group formControlName = "gender" padding-left>
+                    <ion-col col-3 class="genderLabel">Gender</ion-col>
+                    <ion-col class="displayFlex">
+                        <ion-item no-padding>
+                            <ion-label>Male</ion-label>
+                            <ion-radio item-left value="male"></ion-radio>
+                        </ion-item>
+
+                        <ion-item no-padding>
+                            <ion-label>Female</ion-label>
+                            <ion-radio item-left value="female"></ion-radio>
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+            <!-- </ion-item> -->
+            <ion-item class="calendarLabel">
+                <ion-label>
+                    <ion-icon name="calendar" ios="ios-calendar" md="md-calendar"></ion-icon> &nbsp;Date of Birth
+                </ion-label>
+                <ion-datetime displayFormat="MMMM DD, YYYY" formControlName="dob" [max]="currentDate"></ion-datetime>
+            </ion-item>
+
+            <button ion-button full [disabled]="!profileForm.valid">Submit</button>
+        </form>
+    </ion-list>
+</ion-content>

@@ -1,0 +1,247 @@
+page-checkout {
+	.li-ionic-timepicker {
+		.modal-wrapper {
+			max-height: 276px;
+			width: 310px;
+			min-height: 0;
+			border-radius: 0px;
+			--ion-color-primary: #f9a200; 
+			// This Variable used for the change of colour 
+			// ionic4-timepicker only.
+			// --ion-color-primary-tint: rgb(214, 153, 153); 
+			// This Variable changes the tint colour of background 
+			// when click button.
+	 
+			ion-button {
+				// --ion-color-primary: green; 
+				// This Variable used for the change colour of buttons only.
+				// --ion-color-primary-tint: lightgreen; 
+				// This Variable changes the tint color of background 
+				// when click buttons.
+				// --border-radious: 0px; 
+				// This Variable changes the border radious of buttons.
+				// button customization css write here...
+			}
+	 
+	 
+		}
+	}
+	ion-item{
+	    min-height: 3rem !important;
+	}
+
+	.cvvRow{
+		display : flex;
+	}
+
+	.cvvRow ion-input{
+		border: 1px solid #488aff;
+	    border-radius: 2px;
+	    padding: 0 6px;
+	}
+
+	.cvvRow strong{
+		padding: 0.75rem 0;
+	}
+
+	ion-list.addressRadio{
+		margin : 0 !important;
+	}
+
+	.margin32-0{
+		margin : 32px 0px !important;
+	}
+
+	.padding0-5px{
+		padding : 0 5px !important;
+	}
+
+	.marginBottom32px{
+		margin-bottom: 32px !important;
+	}
+	
+	.cardImages{
+		height: 2rem;
+	    position: absolute;
+	    right: 2vw;
+	}
+
+	.paddingVertical0-5vh{
+		padding : 0.5vh 0;
+	}
+
+
+	.bgLightGreen{
+		background: rgba(56, 142, 60, 0.06);
+	}
+
+	.displayBlock{
+		display : block !important;
+	}
+
+	.maxWidth100{
+		max-width : 100% !important;
+	}
+
+	.item-radio-checked * {
+		color: #488aff !important;
+	}
+
+	.item-radio * {
+	    color: black;
+	}
+
+	.addressRadio ion-item, .paymentRadio ion-item, .cardRadio ion-item{
+	    padding: 1vh !important;
+	    background: whitesmoke;
+	    border: 1px solid #488aff !important;
+		margin: 2% !important;
+	    width: 96% !important;
+	}
+
+	.chooseCardTypeRadio ion-item{
+	    background: whitesmoke;
+	    border: 1px solid #488aff !important;
+		margin: 2% !important;
+	    width: 96% !important;
+	    padding: 0 1vh !important;
+	}
+
+	.addressEnter ion-item{
+		border : none !important;
+	}
+
+	.addressEnter ion-item.item-ios .item-inner , .addressEnter ion-item.item-md .item-inner{
+		border-bottom: 0.55px solid #c8c7cc !important;
+	}
+	
+	.addressRadio ion-item .item-inner, .paymentRadio ion-item .item-inner, .cardRadio ion-item .item-inner, .chooseCardTypeRadio ion-item .item-inner{
+	    padding: 0 8px !important;
+	    border : none !important;
+	}
+	
+	ion-item .item-inner ion-label{
+	    margin: 0 !important;
+	}
+	
+	.addressRadio ion-item ion-radio, .paymentRadio ion-item ion-radio, .cardRadio ion-item ion-radio, .chooseCardTypeRadio ion-item ion-radio{
+		margin : 0 !important;
+		align-self : baseline;
+	}
+
+	.radio-icon{
+		top : 1vh !important;
+	}
+
+	.paddingLeft24px{
+		padding-left: 24px;
+	}
+
+	.addressEnter .text-input{
+		font-size : 12px;
+	}
+
+	ion-label{
+		font-size : 14px;
+	}
+
+	.button-default{
+		background-color : #449D44 !important;
+		margin-top: 2vh !important;
+	}
+
+	form #pac-input{
+	    width: 100%;
+	    border: none;
+	}
+	
+	form ion-label.label-wp #pac-input{
+	    padding: 2px 8px;
+        width: calc(100% - 16px) !important;
+	    border: 2px solid rgba(0, 0, 0, 0.5) !important;
+	    line-height: 3rem;
+	}
+
+	form .diffInput .label-md, .diffInput .label-ios{
+	    margin: 7px 0px !important;
+	}
+
+	form ion-item{
+	    min-height: 2.4rem !important;
+	}
+
+	form .text-input{
+		margin : 7px 0 !important;
+	}
+
+
+	.addCardForm ion-select button.item-cover{
+	    position: inherit !important;
+	    width: auto !important;
+	}
+
+	ion-input.cardNo{
+		flex : none !important;
+		width : 65% !important;
+	}
+
+	ion-input.cvvNo{
+		flex : none !important;
+		width : 35% !important;
+	}
+
+	.addCardForm .expDateRow .select-wp {
+	    flex: inherit !important;
+	}
+
+
+	ion-select.select-wp{
+	    margin: 13px 0;
+	}
+
+	.padding010{
+		padding : 0 5vw;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+	.timeBg{
+	    background: rgba(128, 128, 128, 0.18);
+	}
+
+	ion-select .item-cover{
+	    height: 0 !important;
+	    width: 0 !important;
+	    position: fixed !important;
+	}
+
+	ion-datetime .item-cover{
+		position : inherit !important;
+		width : 0 !important;
+	}
+
+	ion-datetime button{
+		border-left: 5px solid transparent;
+    	margin-top: 4%;
+    	padding: 0;
+	    border-right: 5px solid transparent;
+	    border-top: 5px solid #999999;
+	}
+
+	.cardNoError{
+	    background: rgba(49, 55, 61, 0.29);
+	    padding: 5px 10px;
+	    font-size: 1.1rem;
+	    border-radius: 3px;
+	}
+
+}

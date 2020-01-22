@@ -1,0 +1,406 @@
+page-home {
+
+	.card-background-page .topRow {
+		padding: 2vh;
+	    background-position: center;
+	    background-size: 100% 100%;
+		text-align: center;
+		min-height: 20rem;
+	}
+
+	.pkgImage{
+		background-position: center;
+	    background-repeat: no-repeat;
+	}
+	.margin-10{
+		margin: 10px !important;
+	}
+	.homePageRefresher{
+	    top: 24rem;
+	    z-index: 10;
+	}
+
+	.displayBlock{
+		display : block !important;
+		// position : fixed;
+		z-index : 2;
+	}
+
+	.flexiIonItem .item-inner{
+		padding : 0 !important;
+	}
+
+	ion-segment{
+		background : white;
+	}
+
+	.customStyle{
+	    margin: 0;
+	    padding: 0 10px;
+	}
+
+	.flexiIonItem ion-checkbox{
+		margin-right : 8px !important;
+	}
+
+	.flexiIonItem .item-inner ion-label{
+		display: flex !important;
+	}
+
+	.flexiIonItem .item-inner div{
+		width : 100%;
+		padding : 0 5px;
+	}
+
+	.flexiIonItem .item-inner div h2{
+		white-space: initial;
+		font-size: 1.25rem !important;
+	}
+
+	.paddingHorizontal0{
+		padding-left : 0 !important;
+		padding-right : 0 !important;
+	}
+
+	.borderNone{
+		background : white;
+		margin-bottom : 1rem;
+		border: 1px solid lightgray;
+	}
+
+	.card-background-page  .topRow:before {
+		content: '';
+		position: absolute;
+		top: 0;
+		right: 0;
+		min-height : 20rem;
+		left: 0;
+		background-image: linear-gradient(to bottom right, black,black);
+		opacity: .6; 
+	}
+
+	.datetime-text{
+		color : gray !important;
+		font-weight : 500;
+	}
+
+	.card-background-page .card-title {
+	    font-size: 18px;
+		width: 100%;
+		z-index: 1;
+	}
+
+	.card-background-page .card-description {
+	    font-size: 14px;
+		width: 100%;
+		z-index: 1;
+	}
+
+	.itemDescription{
+		text-align : left !important;
+	}
+
+	.card-background-page .card-allowed {
+	    font-size: 14px;
+		width: 100%;
+		z-index: 1;
+		text-transform: uppercase;
+		font-weight: 600;
+	}
+
+	.offerBtn{
+	    background-color: #449D44 !important;
+	    height: 2.5em !important;
+	    font-size: 1.25rem;
+	    border-radius: 0;
+	    float: right;
+	}
+
+	.addToCartBtn{
+	    background-color: #449D44 !important;
+	    /*max-height: 3.5em;
+	    height: 2em;
+	    padding : 0 5px !important;*/
+	    margin-bottom: 1rem !important;
+	    font-size: 1rem;
+	    border-radius: 0;
+	}
+
+	.font1-5em{
+		font-size : 1.5rem;
+	}
+
+	.addPkgToCartBtn{
+	    background-color: #449D44 !important;
+	    padding : 0 5px !important;
+	    font-size: 1.5rem;
+	    border-radius: 0;
+	}
+
+	.pkgCancelRow{
+		float: right;
+	    width: 30%;
+	    font-size: 1.5rem;
+	}
+
+	.slideItemRow{
+		background : #F1F1F1;
+		margin : 1.5vh 0;
+	}
+
+	.topIcon{
+	    position: absolute;
+	    right: 10px;
+	    top: 5px;
+	}
+
+	.singleMenuDiv{
+		margin: 1rem auto !important;
+	}
+
+
+	.paddin40-16px{
+		padding: 40px 16px !important;
+	}
+
+	.menuList .item-inner , .noItemInnerBorder ion-item .item-inner{
+		border : none !important;
+	}
+
+	ion-item button{
+	    border: none !important;
+	    /*min-height: 1px !important;*/
+	    padding : 0 !important;
+	    width: 90% !important;
+	    margin: auto !important;
+	}
+
+	
+
+	ion-item button ion-thumbnail{
+		margin : 0 !important;
+		min-width: 45px !important;
+    	min-height: 45px !important;
+   	    border: 1px solid #f1f1f1;
+	}
+
+	ion-item button ion-thumbnail img{
+		width: 45px !important;
+	    height: 45px !important;
+	}
+
+	ion-item button .item-inner{
+		border : none !important;
+		padding: 0 8px !important;
+		background-image : none !important;
+		min-height : 1px;
+		background: #F1F1F1;
+	}
+
+	ion-item button .item-inner .input-wrapper ion-label{
+		margin : 0 !important;
+		font-size: 1.25rem;
+		font-weight : 600;
+		white-space: normal !important;
+	    padding-right: 8vw;
+	    padding-left: 3vw;
+	}
+
+	.itemList{
+		width: 90%;
+	    margin: auto;
+	    padding-left: 2vh;
+	}
+	.input-wrapper{
+		margin: 10px !important;
+	}
+
+	.itemList ion-row{
+	    margin: 0.5vh 0;
+	    background: #f1f1f1;
+	}
+
+	.itemImage{
+	    background-position: center;
+	    background-size: 100% 100%;
+	    height : 15vw;
+	    height: inherit;
+	}
+
+	/*.displayNone{
+		display : none !important;
+	}
+	.displayBlock{
+		display : block !important;
+	}*/
+
+	.favIcon{
+		position: absolute;
+	    font-size: 3rem;
+	}
+
+	.addToCartCol{
+	    display: grid;
+	}
+
+	.qtyDiv{
+	    display: inline-flex;
+	    margin : 0 !important;
+        /*margin-top: 2vw !important;*/
+	}
+
+	.qtyDiv label, .qtyDiv ion-icon {
+	    padding: 1rem !important;
+	    text-align: center;
+	    font-weight: 600;
+        width: 33%;
+	}
+
+	.minHeight50vh{
+	    min-height: 50vh;
+	    align-items: initial !important;
+	}
+
+
+
+
+
+
+
+
+	
+
+
+	.menuList .item-inner{
+		padding : 0 !important;
+	}
+
+	.menuList .item-inner ion-label{
+		margin : 0 !important;
+	}
+
+	.list > .item-block:first-child{
+		margin-top : 1vh !important;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	.comboList{
+	    width: 95%;
+	    flex-wrap: inherit !important;
+	    margin: auto;
+        margin-top: 1vh;
+	}
+
+	.comboMenuImage{
+		height : 10vh;
+	}
+
+	ion-row.comboMenuItem{
+	    padding: 1rem;
+	    margin: 1rem 0 0 1rem;
+	    background: rgba(211, 211, 211, 0.29);
+	}
+
+	div.pkgMenu{
+		margin: 1vh 0;
+	}
+
+	ion-row.comboMenu{
+		background: #f3f3f3;
+	}
+
+
+
+	ion-slides.homeSlides{
+	    position: absolute;
+	    top: 0;
+	    background: #eaeaea;
+	    padding: 5px 5px 5vh 5px;
+        z-index: 1;
+        height: calc(100vh - 64px) !important;
+	}
+
+	.font3vw{
+		font-size : 1.25rem;
+	}
+
+	ion-slides.homeSlides ion-slide{
+	    display : block !important;
+	    overflow-y : scroll !important;
+	    padding-bottom : 15vw !important;
+	}
+
+	ion-slides.homeSlides ion-row{
+		width : 100%;
+	}
+
+
+
+
+
+
+	.segment .segment-button{
+		border : none !important;
+		color: #449D44 !important;
+	}
+
+	.segment .segment-button.segment-activated{
+	    color: #449D44 !important;
+	    border-bottom: 1.5px solid #449D44 !important;
+	    background-color: transparent !important;
+	    opacity: 1;
+	    -webkit-transition: 100ms all linear;
+	    transition: 100ms all linear;
+	}
+
+	.segment .segment-button {
+	    flex: 1;
+	    padding : 0;
+	}
+
+
+
+
+
+
+
+
+
+
+
+	
+
+	ion-slides.menuSlides{
+		position: initial !important;
+		background : white !important;
+		height: auto;
+		// margin-top: 25rem;
+	    // padding-bottom: 5rem;
+		/*
+	    padding-top: 25rem !important;
+		height : inherit !important;
+		padding : 0 !important;
+		margin-top : 24rem !important;*/
+	}
+
+	/*ion-slides.menuSlides ion-slide{
+		padding-top: 25rem !important;
+	    padding-bottom: 5rem;
+	}*/
+
+	/*ion-slide ion-slides.menuSlides:parent { height: inherit !important; }*/
+
+}

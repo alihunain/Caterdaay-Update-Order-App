@@ -1,0 +1,33 @@
+<ion-header>
+
+    <ion-toolbar>
+        <ion-title>
+            Give Review
+        </ion-title>
+        <ion-buttons start>
+            <button ion-button (click)="dismiss()">
+                <span ion-text showWhen="ios,android,windows">Cancel</span>
+                <!-- <ion-icon name="md-close" showWhen=""></ion-icon> -->
+            </button>
+        </ion-buttons>
+    </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content has-bouncing="true" padding class="pt-100">
+
+    <ion-row><ion-col text-center><strong>Order Packing Rating</strong></ion-col></ion-row>
+    <rating class="orderPacking" [(ngModel)]="rateOrderPacking" readOnly="false" max="5" emptyStarIconName="star-outline" halfStarIconName="star-half" starIconName="star" nullable="false" (ngModelChange)="onModelChange($event,'order')"> </rating>
+    
+    <ion-row><ion-col text-center><strong>Delivery Time Rating</strong></ion-col></ion-row>
+    <rating class="deliveryTime" [(ngModel)]="rateDeliveryTime" readOnly="false" max="5" emptyStarIconName="star-outline" halfStarIconName="star-half" starIconName="star" nullable="false" (ngModelChange)="onModelChange($event,'delivery')"> </rating>
+
+    <ion-row><ion-col text-center><strong>Money Value Rating</strong></ion-col></ion-row>
+    <rating class="valueOfMoney" [(ngModel)]="rateValueOfMoney" readOnly="false" max="5" emptyStarIconName="star-outline" halfStarIconName="star-half" starIconName="star" nullable="false" (ngModelChange)="onModelChange($event,'money')"> </rating>
+
+    <ion-row><ion-col col-12><textarea [(ngModel)]="review" class="form-control width100" rows="2" placeholder="Your review help to other learn about your order experience from this chef"></textarea></ion-col></ion-row>
+
+    <button [disabled]="!ratingForm.valid" ion-button full color = "danger" class="font2vh marginLeftAuto" (click)="addReview()">Rate</button>
+
+</ion-content>

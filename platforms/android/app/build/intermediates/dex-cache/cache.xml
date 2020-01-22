@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="D:\OrderApp\platforms\android\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="29.0.2"
+        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
+        <dex dex="D:\OrderApp\platforms\android\build\intermediates\pre-dexed\debug\com.android.support-support-fragment-24.2.1_5e1eff35f69386c6e681887f3529a09efd5bdc21.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\OrderApp\platforms\android\build\intermediates\exploded-aar\com.google.firebase\firebase-messaging\11.8.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="29.0.2"
+        sha1="c44026185adf61f12630db36ac6781481f559e7c">
+        <dex dex="D:\OrderApp\platforms\android\build\intermediates\pre-dexed\debug\com.google.firebase-firebase-messaging-11.8.0_55a6da7495d9ebd71481c9ac92429d641369d790.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\OrderApp\platforms\android\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="29.0.2"
+        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
+        <dex dex="D:\OrderApp\platforms\android\build\intermediates\pre-dexed\debug\com.android.support-animated-vector-drawable-24.2.1_d678827b29fe70c357cb1685b2919009083b1d7f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\OrderApp\platforms\android\build\intermediates\exploded-aar\org.apache.cordova\CordovaLib\6.3.0\debug\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="29.0.2"
+        sha1="53d2966f0ad9d41e13d20b2458ca77a55aef3154">
+        <dex dex="D:\OrderApp\platforms\android\build\intermediates\pre-dexed\debug\CordovaLib-6.3.0-debug_32688b3418076e8a7f44c75c0bd204992bc68f9a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\OrderApp\platforms\android\build\intermediates\exploded-aar\me.leolin\ShortcutBadger\1.1.21\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="29.0.2"
+        sha1="34cc5a7a8157e8e840d601b5236a7f495ab0e838">
+        <dex dex="D:\OrderApp\platforms\android\build\intermediates\pre-dexed\debug\me.leolin-ShortcutBadger-1.1.21_8e07450cea956ed7e44a5ccc09721eda03a9e375.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Ali Hunain\.gradle\caches\modules-2\files-2.1\com.android.support\support-annotations\24.2.1\8de3aafecbdf98a61db6427f008f2d515bcd2544\support-annotations-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="29.0.2"
+        sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
+        <dex dex="D:\OrderApp\platforms\android\build\intermediates\pre-dexed\debug\support-annotations-24.2.1_3b0cefba7b54c451b996d1331ff7cc731a4fcec4.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\OrderApp\platforms\android\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="29.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="D:\OrderApp\platforms\android\build\intermediates\pre-dexed\debug\com.android.support-support-v4-24.2.1_249ff6e91c02e1a5103ff8468a4cf1bcb3935c70.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\OrderApp\platforms\android\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="29.0.2"
+        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
+        <dex dex="D:\OrderApp\platforms\android\build\intermediates\pre-dexed\debug\com.android.support-support-media-compat-24.2.1_bfb85bd3ed0b2d957b295917e04a91011b6ba08d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\OrderApp\platforms\android\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics\11.8.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="29.0.2"
+        sha1="42c9659c973e311ffdb645ed057e5053e0ab5c78">
+        <dex dex="D:\OrderApp\platforms\android\build\intermediates\pre-dexed\debug\com.google.firebase-firebase-analytics-11.8.0_c113195f778c1a9aa5d62c464bc97e31aa2c2005.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\OrderApp\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="29.0.2"
+        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
+        <dex dex="D:\OrderApp\platforms\android\build\intermediates\pre-dexed\debug\com.android.support-support-core-utils-24.2.1_d16f7b719a344b92f46941815504bdf4d8c59245.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\OrderApp\platforms\android\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="29.0.2"
+        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
+        <dex dex="D:\OrderApp\platforms\android\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-24.2.1_86f2ac4cf3671b768320cb90cde0823835193771.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\OrderApp\platforms\android\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="29.0.2"
+        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
+        <dex dex="D:\OrderApp\platforms\android\build\intermediates\pre-dexed\debug\internal_impl-24.2.1_64fd1ad96661853cc430b9e9fc7c4baf7e3888af.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\OrderApp\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="29.0.2"
+        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
+        <dex dex="D:\OrderApp\platforms\android\build\intermediates\pre-dexed\debug\com.android.support-support-core-ui-24.2.1_fa643497e793d92639636b2111d9767d3e711f4b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\OrderApp\platforms\android\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics-impl\11.8.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="29.0.2"
+        sha1="122de0d704f76d2bb5cb9db66e00fe90a0a41e78">
+        <dex dex="D:\OrderApp\platforms\android\build\intermediates\pre-dexed\debug\com.google.firebase-firebase-analytics-impl-11.8.0_2d66c637ffc532fba0cc3edca76431a214eb7966.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\OrderApp\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\11.8.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="29.0.2"
+        sha1="5ad3911825107d8dd4b017fdecebfd23c08048dd">
+        <dex dex="D:\OrderApp\platforms\android\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-basement-11.8.0_ed0728251bed77e25559a6c2e6e6589d0089eae2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\OrderApp\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="29.0.2"
+        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
+        <dex dex="D:\OrderApp\platforms\android\build\intermediates\pre-dexed\debug\com.android.support-support-compat-24.2.1_d34dbb870c4182d2548d7f57e54a6c9e9bb684ff.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\OrderApp\platforms\android\build\intermediates\exploded-aar\com.google.firebase\firebase-iid\11.8.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="29.0.2"
+        sha1="264ad23f9752aabecfa41115c52a25a023a08839">
+        <dex dex="D:\OrderApp\platforms\android\build\intermediates\pre-dexed\debug\com.google.firebase-firebase-iid-11.8.0_437d9cae1db772c0b991362debbd6237d6bc0873.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\OrderApp\platforms\android\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="29.0.2"
+        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
+        <dex dex="D:\OrderApp\platforms\android\build\intermediates\pre-dexed\debug\com.android.support-support-vector-drawable-24.2.1_2e70578ea9b1640b6b2342888dcfd6e78ab727d0.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\OrderApp\platforms\android\build\intermediates\exploded-aar\com.google.firebase\firebase-common\11.8.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="29.0.2"
+        sha1="e6aeff19a2ce1eb896557be73cb9ceb56f8d1cf3">
+        <dex dex="D:\OrderApp\platforms\android\build\intermediates\pre-dexed\debug\com.google.firebase-firebase-common-11.8.0_6eb76c160f4b01dbcd810cfa3980aaf4e85264e2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\OrderApp\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="29.0.2"
+        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
+        <dex dex="D:\OrderApp\platforms\android\build\intermediates\pre-dexed\debug\internal_impl-24.2.1_0eb8fbdcfcff4ee510d0080ac3ba3042819e8ca8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\OrderApp\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="29.0.2"
+        sha1="867dad63c33388ff8c7644b236579355036d075f">
+        <dex dex="D:\OrderApp\platforms\android\build\intermediates\pre-dexed\debug\internal_impl-24.2.1_915fc7c02b12840c6d212936f6185a7cc03ff242.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\OrderApp\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="29.0.2"
+        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
+        <dex dex="D:\OrderApp\platforms\android\build\intermediates\pre-dexed\debug\internal_impl-24.2.1_fb00163206a509a8ff469f20323c3dc440509097.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\OrderApp\platforms\android\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="29.0.2"
+        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
+        <dex dex="D:\OrderApp\platforms\android\build\intermediates\pre-dexed\debug\internal_impl-24.2.1_c0070c68c8c40903df73ce4c6308dabb8ba43f93.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\OrderApp\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\11.8.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="29.0.2"
+        sha1="d2af2ef4d987d753f2e8ee2d1480ab964d5c7273">
+        <dex dex="D:\OrderApp\platforms\android\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-tasks-11.8.0_156083eae0d852c3e3301597ad898dd50238840f.jar" />
+    </item>
+
+</items>

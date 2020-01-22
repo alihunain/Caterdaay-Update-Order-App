@@ -1,0 +1,48 @@
+page-wishlist {
+	.itemImage{
+	    background-position: center;
+	    background-size: cover;
+	    /*height : 15vw;
+	    height: inherit;*/
+	    height: 7rem;
+	}
+
+	.paddin40-16px{
+		padding : 40px 16px !important;
+	}
+
+	.marginTop1vh{
+		margin-top: 1vh;
+	}
+
+	.noVerticalPadding{
+		padding : 0 5px !important;
+	}
+
+	ion-item, ion-item .item-inner{
+		padding : 0 !important;
+		border : none !important;
+	}
+
+	ion-list{
+		box-shadow: 0 6px 10px rgba(0, 0, 0, 0.17), 0 0px 6px rgba(0, 0, 0, 0.17);
+		padding : 0 10px 10px;
+	}
+
+	.itemList{
+	    padding: 0 10px;
+        background: #e8e8e8;
+	}
+
+	.font1-2em{
+		font-size : 1.2em;
+	}
+
+	hr{
+		height : 1.55px !important;
+	}
+
+	.customMargin{
+		margin: 0 0 0.5rem !important;
+	}
+}

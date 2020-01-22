@@ -1,0 +1,88 @@
+[
+    {
+        "outputFile": "C:\\KLproject\\OrderSystem1\\platforms\\android\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-mr\\values-mr.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 105,
+                    "endColumn": 201,
+                    "endOffset": 302
+                },
+                "from": {
+                    "file": "C:\\KLproject\\OrderSystem1\\platforms\\android\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-basement\\11.8.0\\res\\values-mr\\values.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 0,
+                        "startOffset": 283,
+                        "endColumn": 201,
+                        "endOffset": 484
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 307,
+                    "endColumn": 103,
+                    "endOffset": 406
+                },
+                "from": {
+                    "file": "C:\\KLproject\\OrderSystem1\\platforms\\android\\build\\intermediates\\exploded-aar\\com.google.firebase\\firebase-messaging\\11.8.0\\res\\values-mr\\values.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 0,
+                        "startOffset": 241,
+                        "endColumn": 99,
+                        "endOffset": 340
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "outputFile": "D:\\OrderApp\\platforms\\android\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-mr\\values-mr.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 105,
+                    "endColumn": 201,
+                    "endOffset": 302
+                },
+                "from": {
+                    "file": "D:\\OrderApp\\platforms\\android\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-basement\\11.8.0\\res\\values-mr\\values.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 0,
+                        "startOffset": 283,
+                        "endColumn": 201,
+                        "endOffset": 484
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 307,
+                    "endColumn": 103,
+                    "endOffset": 406
+                },
+                "from": {
+                    "file": "D:\\OrderApp\\platforms\\android\\build\\intermediates\\exploded-aar\\com.google.firebase\\firebase-messaging\\11.8.0\\res\\values-mr\\values.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 0,
+                        "startOffset": 241,
+                        "endColumn": 99,
+                        "endOffset": 340
+                    }
+                }
+            }
+        ]
+    }
+]

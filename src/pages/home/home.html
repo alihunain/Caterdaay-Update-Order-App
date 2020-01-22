@@ -1,0 +1,397 @@
+<ion-header>
+		<ion-navbar>
+			<button ion-button menuToggle>
+				<ion-icon name="menu"></ion-icon>
+			</button>
+			<ion-title text-capitalize>{{kitchen.restaurantname}}</ion-title>
+			<ion-icon  padding-horizontal margin-right class = "white" float-right end name="cart" ios="ios-cart" md="md-cart" (click)="cartPage()"></ion-icon>
+		</ion-navbar>
+	</ion-header>
+	
+	<ion-content class="card-background-page" has-bouncing="true">
+		<ion-row class = "displayBlock width100">
+			<ion-row *ngIf = "!dayAndMenuData && !flexiData" class="topRow width100" [ngStyle]="{'background-image': 'url(' + restroImage(kitchen.image[0]) +')'}">
+				<div class="topIcon white">
+					<!-- <ion-icon name="text" ios="ios-text" md="md-text" class="font1-75em marginRight5vw" (click) = "reviewPage()"></ion-icon> -->
+					<ion-icon name="information-circle" ios="ios-information-circle" md="md-information-circle" class="font1-75em marginRight5vw" (click)="presentPopover($event)"></ion-icon>
+				</div>
+				<p text-capitalize class="card-title fontWeight500 white">{{kitchen.restaurantname}}, {{kitchen.city}}, {{kitchen.country}}</p>
+	
+				<p class="card-description white">
+					<span *ngFor = "let rate of rateArray; let i = index; ">
+						<ion-icon *ngIf = "kitchen.rating >= rate" class = "white font1-75em" name="star" ios="ios-star" md="md-star"></ion-icon>
+						
+						<ion-icon *ngIf = "kitchen.rating < rate && kitchen.rating > i" class = "white font1-75em" name="star-half" ios="ios-star-half" md="md-star-half"></ion-icon>
+	
+						<ion-icon *ngIf = "kitchen.rating < rate && kitchen.rating <= i" class = "white font1-75em" name="star-outline" ios="ios-star-outline" md="md-star-outline"></ion-icon>
+					</span>
+				</p>
+<!-- 	
+				<ion-row *ngIf = "kitchen.openclose == 'close' " class="card-allowed white" text-center>
+					<ion-col col-12 text-center> ** {{kitchen.openclose}} **</ion-col>
+					<ion-col col-12 text-center>Your can Pre-order for later</ion-col>
+				</ion-row>
+	 -->
+				<!-- <div class="width100"><button ion-button class="offerBtn" (click) = "offerPage()">OFFER</button></div> -->
+	
+				<ion-icon class="favIcon" *ngIf = "checkIfResFav()" color = "danger" float-right name="heart" ios="ios-heart" md="md-heart"></ion-icon>
+	
+			</ion-row>
+	
+			<ion-segment *ngIf = "!dayAndMenuData && !flexiData" [(ngModel)]="selectedSegment"> <!-- (ionChange)="onSegmentChanged($event)"> -->
+				<ion-segment-button value="0" ion-long-press [interval]="1000" (onPressing)="detailMenu()" (onPressEnd)="released()" (click)="selectTab(0)">
+				    Servings
+				</ion-segment-button>
+				<!-- <ion-segment-button value="1" ion-long-press [interval]="1000" (onPressing)="detailCombo()" (onPressEnd)="released()" (click)="selectTab(1)">
+					Servings
+				</ion-segment-button>
+				<ion-segment-button value="2" ion-long-press [interval]="1000" (onPressing)="detailMeal()" (onPressEnd)="released()"  (click)="selectTab(2)">
+					WEEKLY PACKAGE
+				</ion-segment-button> -->
+			</ion-segment>
+			{{slidesHeight}}
+		</ion-row>
+	
+	
+		<ion-content>
+			
+			<ion-refresher class="homePageRefresher" *ngIf = "!dayAndMenuData && !flexiData" (ionRefresh)="doRefresh($event)">
+				<ion-refresher-content></ion-refresher-content>
+			</ion-refresher>
+	
+			<!-- (ionSlideWillChange)="changeWillSlide($event)" -->
+			<ion-slides *ngIf = "!dayAndMenuData && !flexiData" #pageSlider  class="menuSlides">
+	
+				<!-- [ngStyle]="{ 'height': slidesMoving ? (slidesHeight + 'px') : 'auto' }" (ionSlideDidChange)="slideDidChange()"  -->
+	
+				<ion-slide *ngIf="selectedSegment == 0">
+				<ion-row *ngIf = "!availcombo">
+			    	<ion-col col-12 text-center>
+				    	<ion-spinner name="dots"></ion-spinner>
+				    </ion-col>
+			    </ion-row>
+					
+				<ion-item class="padding0 menuList">
+						<ng-container *ngIf = "availcombo && availcombo.length > 0">
+							<ion-list *ngFor = "let combo of availcombo" class="comboList">
+								<ion-row class="width100 comboMenu">
+									<ion-col class="itemImage" col-3 no-padding [ngStyle]="{'background-image': 'url(' + comboImage(combo.image) + ')'}"></ion-col>
+									<ion-col col-5 (click)="viewComboDetail(combo)">
+										<p text-capitalize class = "font2vh colorBlack">{{combo.name}}
+											<ion-icon *ngIf = "!combo.showDetails" class="fontWeight700 font1-5em customStyle" float-right name="arrow-dropdown" ios="ios-arrow-dropdown" md="md-arrow-dropdown"></ion-icon>
+											<ion-icon *ngIf = "combo.showDetails" class="fontWeight700 font1-5em customStyle" float-right name="arrow-dropup" ios="ios-arrow-dropup" md="md-arrow-dropup"></ion-icon>
+										</p>
+										<p class="colorLightGray font2vh colorBlack"><span *ngIf = "kitchen && kitchen.currency">{{kitchen.currency}}</span> {{combo.finalcomboprice | number : '1.2-2'}}</p>
+										<p class="colorLightGray font2vh colorBlack"><span *ngIf = "kitchen && kitchen.currency">Min Serving : </span> {{combo.min }}</p>
+										<p class="colorLightGray font2vh colorBlack"><span *ngIf = "kitchen && kitchen.currency">Max Serving : </span> {{combo.max }}</p>
+										<!-- <p class="font2vh">
+											<span *ngIf="comboRatingIndex.indexOf(combo._id) != -1">
+												<b [innerHTML]="ShowComboRatingStar(comboRatingIndex.indexOf(combo._id))"></b>
+											</span>
+											<span *ngIf="comboRatingIndex.indexOf(combo._id) == -1">
+												<ion-icon name="star" ios="ios-star" md="md-star"></ion-icon>
+												<ion-icon name="star" ios="ios-star" md="md-star"></ion-icon>
+												<ion-icon name="star" ios="ios-star" md="md-star"></ion-icon>
+												<ion-icon name="star" ios="ios-star" md="md-star"></ion-icon>
+												<ion-icon name="star" ios="ios-star" md="md-star"></ion-icon>
+											</span>
+										</p> -->
+									</ion-col>
+									<ion-col col-4 class="addToCartCol" no-padding>
+										<div class="qtyDiv font2vh width100 colorBlack">
+											<ion-icon class="fontWeight700" name="remove" ios="ios-remove" md="md-remove" (click)="decreaseQuantity(combo._id)"></ion-icon>
+										
+											<label id="item_{{combo._id}}" no-margin class="quantity width100 height100">{{combo.Minimum}}</label>
+											<ion-icon class="fontWeight700" name="add" ios="ios-add" md="md-add" (click)="increaseQuantity(combo._id)"></ion-icon>
+										</div>
+	
+										<div>
+											<button ion-button class="addToCartBtn" [disabled]="combo.disabled" (click) = "addToCart(combo, 'combo')">Add to Cart</button>
+										</div>
+									</ion-col>
+								</ion-row>
+	
+								<ion-row *ngIf = "combo.showDetails" class="comboMenuItem">
+								
+									<ion-col col-4 class="whiteSpaceInitial" *ngFor = "let menus of combo.menuId">
+										<ion-row class="itemImage comboMenuImage width100" [ngStyle]="{'background-image': 'url(' + itemImage(menus.image) + ')'}"></ion-row>
+										<ion-row class="width100">
+											<p text-capitalize class = "font2vh colorBlack">{{menus.name}}</p>
+											<p class = "font2vh">
+												<span *ngIf="itemsRatingIndex.indexOf(menus._id) != -1">
+													<ng-container *ngFor = "let ratingg of itemsRatingIndex">
+														<ng-container *ngIf = "ratingg.id == menus._id">
+															<ng-container *ngFor = "let rate of rateArray; let i = index; ">
+																<ion-icon *ngIf = "ratingg.average >= rate" class = "font1-75em" name="star" ios="ios-star" md="md-star"></ion-icon>
+																
+																<ion-icon *ngIf = "ratingg.average < rate && ratingg.average > i" class = "font1-75em" name="star-half" ios="ios-star-half" md="md-star-half"></ion-icon>
+	
+																<ion-icon *ngIf = "ratingg.average < rate && ratingg.average <= i" class = "font1-75em" name="star-outline" ios="ios-star-outline" md="md-star-outline"></ion-icon>
+															</ng-container>
+														</ng-container>
+														
+													</ng-container>
+												</span> 
+												<span *ngIf="itemsRatingIndex.indexOf(menus._id) == -1">
+													<ion-icon name="star" ios="ios-star" md="md-star"></ion-icon>
+													<ion-icon name="star" ios="ios-star" md="md-star"></ion-icon>
+													<ion-icon name="star" ios="ios-star" md="md-star"></ion-icon>
+													<ion-icon name="star" ios="ios-star" md="md-star"></ion-icon>
+													<ion-icon name="star" ios="ios-star" md="md-star"></ion-icon>
+												</span>
+											</p>
+											<p class="colorLightGray font2vh colorBlack"><span *ngIf = "kitchen && kitchen.currency">{{kitchen.currency}}</span> {{menus.price | number : '1.2-2'}}</p>
+										</ion-row>
+									</ion-col>
+									<ion-col col-12 class="whiteSpaceInitial"  style="left: 40px;display: none">
+											<!-- <ion-row class="itemImage comboMenuImage width100" [ngStyle]="{'background-image': 'url(' + itemImage(menus.image) + ')'}"></ion-row> -->
+											<ion-row class="width100" >
+												
+												<textarea id="inst{{combo._id}}" placeholder="Special Instruction"  type="text"></textarea>
+										
+											</ion-row>
+									</ion-col>
+									<ion-col col-4 class="addToCartCol" style="left: 33%;display: none">
+											<button  full no-margin ion-button class="addPkgToCartBtn" (click) = "key()">Add</button>
+									</ion-col>
+								</ion-row>
+								<!-- <ion-row *ngIf = "combo.showDetails" class="comboMenuItem">
+									
+								</ion-row> -->
+							</ion-list>
+						</ng-container>
+	
+						<ng-container *ngIf = "availcombo && availcombo.length == 0 ">
+							<ion-item text-center class="paddin40-16px">
+								<strong>No Serving Available!</strong>
+							</ion-item>
+						</ng-container>
+					</ion-item>
+				</ion-slide>
+	
+			
+			</ion-slides>
+		</ion-content>
+	
+		<ion-slides class = "homeSlides" pager *ngIf = "dayAndMenuData">
+			<ion-slide *ngFor="let slide of dayAndMenuData.dayandmenus">
+				<ion-row class="pkgCancelRow">
+					<ion-col text-right (click)="removeSlides()">Cancel</ion-col>
+				</ion-row>
+				<ion-toolbar padding-horizontal class="white">
+					{{slide.date | date : 'fullDate'}}
+				</ion-toolbar>
+	
+				<ion-row class="padding0 slideItemRow" *ngFor = "let item of slide.menuids">
+					<ion-col class="itemImage" col-3 no-padding [ngStyle]="{'background-image': 'url(' + itemImage(item.image) + ')'}"></ion-col>
+					<ion-col>
+						<ion-row text-capitalize class = "colorBlack width100">{{truck(item.name)}}</ion-row>
+						<!-- <ion-row class="colorLightGray font3vw width100"><span *ngIf = "kitchen && kitchen.currency">{{kitchen.currency}}</span> {{item.price | number : '1.2-2'}}</ion-row> -->
+						<ion-row *ngIf = "item.qty" class="colorLightGray font3vw width100"> 
+							<ion-col col-6 text-left><strong>Qty :</strong>&nbsp;{{item.qty}}</ion-col>
+							<ion-col col-6 text-right><strong><span *ngIf = "kitchen && kitchen.currency">{{kitchen.currency}}</span> {{item.price * item.qty | number : '1.2-2'}}</strong></ion-col>
+						</ion-row>
+	
+					</ion-col>
+				</ion-row>
+			</ion-slide>
+	
+			<ion-slide>
+				<ion-row class="pkgCancelRow">
+					<ion-col text-right (click)="removeSlides()">Cancel</ion-col>
+				</ion-row>
+				<ion-list>
+					<ion-item class="font1-5em">
+						<ion-thumbnail item-start>
+							<img style="object-fit:cover" [src]="menuImage(dayAndMenuData.image)">
+						</ion-thumbnail>
+						<strong>{{truck(dayAndMenuData.name)}}</strong>
+					</ion-item>
+				</ion-list>
+	
+				<ion-row padding-bottom class="font1-5em">
+					<ion-col col-3 col-sm-2 text-left>
+						Package Duration :
+					</ion-col>
+	
+					<ion-col text-left>
+						{{dayAndMenuData.startdate | date : 'mediumDate'}} - {{dayAndMenuData.enddate | date : 'mediumDate'}}
+					</ion-col>
+				</ion-row>
+				<ion-row padding-bottom class="font1-5em">
+					<ion-col col-5 col-sm-4 text-left>
+						Package Price :
+					</ion-col>
+	
+					<ion-col text-left>
+						<span *ngIf = "kitchen && kitchen.currency">{{kitchen.currency}}</span> {{dayAndMenuData.packageprice | number : '1.2-2'}}
+					</ion-col>
+				</ion-row>
+	
+				<ion-row>
+					<ion-col class="addToCartCol">
+						<button full no-margin ion-button class="addPkgToCartBtn" (click) = "addToCart(dayAndMenuData, 'mealpackage')">Add Weekly Package to Cart</button>
+					</ion-col>
+				</ion-row>
+			</ion-slide>
+		</ion-slides>
+	
+		<ion-slides class = "homeSlides" *ngIf = "flexiData">
+			<ion-slide>
+				<ion-row class="pkgCancelRow">
+					<ion-col text-right (click)="removeFlexibleSlides()">Cancel</ion-col>
+				</ion-row>
+				<ion-list>
+					<ion-item text-capitalize class="font1-5em">
+						<ion-thumbnail item-start>
+							<img style="object-fit:cover" [src]="menuImage(flexiData.image)">
+						</ion-thumbnail>
+						<strong>{{truck(flexiData.name)}}</strong>
+					</ion-item>
+				</ion-list>
+	
+				<ion-row>
+					<ion-col col-12 class="paddingHorizontal0"><strong>Select Date : </strong></ion-col>
+				</ion-row>
+	
+				<ion-row class="borderNone">
+					<ion-col col-12 text-left><strong>Start Date : </strong></ion-col>
+					
+					<ion-col col-12 text-left>
+						<!-- <ion-datetime placeholder = "Select Start Dat1e" [min]="currentDate" [max] = "checkMaxDate()" displayFormat="DDDD " pickerFormat="DDDD " [(ngModel)]="event.startDate"  (ionChange)="dateFunction($event)"></ion-datetime> -->
+							<span ion-datepicker  [(value)]="localDate" [disabledDates]="disabledDateArray" [min]="minDate" (ionChanged)="startDateSelected($event , localDate)"  [max]="maxDate" clear class="ScheduleDate">
+										<span>{{localDate | date}} <ion-icon name="clipboard" item-left ></ion-icon>  </span>
+							</span>
+							<!-- <label  ion-datepicker  [(value)]="localDate" [disabledDates]="disabledDateArray" [min]="minDate"  [max]="maxDate" clear class="ScheduleDate"> Select Start Date</label> -->
+					</ion-col>
+				</ion-row>
+	
+				<ion-row class="borderNone">
+					<ion-col col-12 text-left><strong>End Date : </strong></ion-col>
+					
+					<ion-col col-12 text-left>
+						<!-- <ion-datetime placeholder = "Select End Date" [min]="pkgEndStartDate" [max] = "currentDateAfterTenYrs" displayFormat="MMM DDDD, YYYY" pickerFormat="DD MMM YYYY" [(ngModel)]="event.endDate" (ionChange)="dateFunction($event)"></ion-datetime> -->
+						<ion-input disabled  placeholder="Select End Date" [value]="formatted_date"   id="endDate" ></ion-input>
+					</ion-col>
+				</ion-row>
+	
+				<ion-row>
+					<!-- <ion-col *ngIf = "checkRevise" col-12 class="addToCartCol paddingHorizontal0">
+						<ion-item class="borderNone">
+							<ion-label>Repeat Weekly Menu</ion-label>
+							<ion-checkbox (ionChange)="checkReviseFunction()" [(ngModel)]="reviseFlexi"></ion-checkbox>
+						</ion-item>
+					</ion-col> -->
+	
+					<ion-col col-12 class="addToCartCol">
+						<button  full no-margin ion-button class="addPkgToCartBtn" (click) = "addToCartWeekend(flexiData)">Add to Cart</button>
+					</ion-col>
+				</ion-row>
+			</ion-slide>
+		</ion-slides>
+	
+		<ion-slides class = "homeSlides" pager *ngIf = "selectItem && flexiData">
+	
+			<ion-slide *ngFor="let slide of datesArray; let i = index; ">
+	
+				<ion-row class="width100 pkgCancelRow">
+					<ion-col *ngIf = "flexiTotal && flexiTotal.subTotal" text-left>Total : <span *ngIf = "kitchen && kitchen.currency">{{kitchen.currency}}</span> {{flexiTotal.subTotal}}</ion-col>
+					<ion-col text-right (click)="removeFlexibleSlides()">Cancel</ion-col>
+				</ion-row>
+	
+				<ion-toolbar padding-horizontal text-left class="white" text-capitalize>
+					{{slide.date | date : 'fullDate'}}
+				</ion-toolbar>
+	
+				<ion-list *ngIf = "slide.tempmenuids && slide.tempmenuids.length > 0">
+					<ion-item class="flexiIonItem" *ngFor = "let item of slide.tempmenuids;">
+						<ion-label>
+							<ion-thumbnail><!--  item-start [ngStyle]="{'background-image': 'url(' + itemImage(item.image) + ')'}" -->
+								<img style="object-fit:cover" [src]="itemImage(item.image)">
+							</ion-thumbnail>
+							<div>
+								<h2 text-capitalize>{{item.name}}</h2>
+								<p><span *ngIf = "kitchen && kitchen.currency">{{kitchen.currency}}</span> {{item.price | number : '1.2-2'}}</p>
+							</div>
+						</ion-label>
+						<ion-checkbox (ionChange)="addMenuToFlexiDate($event,item, i)"></ion-checkbox>
+					</ion-item>
+				</ion-list>
+	
+				<ion-list class="" *ngIf = "slide.tempmenuids && slide.tempmenuids.length == 0">
+					<ion-item>
+						No Item this day!
+					</ion-item>
+				</ion-list>
+			</ion-slide>
+	
+			<ion-slide>
+	
+				<ion-row class="width100 pkgCancelRow">
+					<ion-col text-right (click)="removeFlexibleSlides()">Cancel</ion-col>
+				</ion-row>
+	
+				<ion-list>
+					<ion-item text-capitalize class="font1-5em">
+						<ion-thumbnail item-start>
+							<img style="object-fit:cover" [src]="menuImage(flexiData.image)">
+						</ion-thumbnail>
+						<strong>{{flexiData.name}}</strong>
+					</ion-item>
+				</ion-list>
+	
+				<ion-row padding-bottom class="font1-5em">
+					<ion-col col-12 text-left>
+						<strong>Duration :</strong>
+					</ion-col>
+	
+					<ion-col col-12 text-left>
+						{{event.startDate | date : 'mediumDate'}} - {{event.endDate | date : 'mediumDate'}} ({{dayDif +1}} days)
+					</ion-col>
+				</ion-row>
+	
+				<ion-row *ngIf = "flexiTotal && flexiTotal.subTotal" padding-bottom class="font1-5em">
+					<ion-col col-7 col-sm-5 text-left>
+						Package Price :
+					</ion-col>
+					<ion-col *ngIf = "!reviseFlexi" text-left>
+						<span *ngIf = "kitchen && kitchen.currency">{{kitchen.currency}}</span> {{flexiTotal.subTotal | number : '1.2-2'}}
+					</ion-col>
+					<ion-col *ngIf = "reviseFlexi" text-left>
+						<span *ngIf = "kitchen && kitchen.currency">{{kitchen.currency}}</span> {{flexiRepeatTotal.subTotal | number : '1.2-2'}}
+					</ion-col>
+				</ion-row>
+	
+				<ion-row *ngIf = "flexiTotal && flexiTotal.subTotal" padding-bottom class="font1-5em">
+					<ion-col col-7 col-sm-5 text-left>
+						Discount &nbsp;( {{flexiData.discount}} % ) :
+					</ion-col>
+					<ion-col *ngIf = "!reviseFlexi" text-left>
+						<span *ngIf = "kitchen && kitchen.currency">{{kitchen.currency}}</span> {{(flexiTotal.subTotal * flexiData.discount)/100 | number : '1.2-2'}}
+					</ion-col>
+					<ion-col *ngIf = "reviseFlexi" text-left>
+						<span *ngIf = "kitchen && kitchen.currency">{{kitchen.currency}}</span> {{(flexiRepeatTotal.subTotal * flexiData.discount)/100 | number : '1.2-2'}}
+					</ion-col>
+				</ion-row>
+	
+				<ion-row *ngIf = "flexiTotal && flexiTotal.subTotal" padding-bottom class="font1-5em">
+					<ion-col col-7 col-sm-5 text-left>
+						Total :
+					</ion-col>
+					<ion-col *ngIf = "!reviseFlexi" text-left>
+						<span *ngIf = "kitchen && kitchen.currency">{{kitchen.currency}}</span> {{getPrice(flexiTotal.subTotal,flexiData.discount,'noRepeat') | number : '1.2-2'}}
+					</ion-col>
+					<ion-col *ngIf = "reviseFlexi" text-left>
+						<span *ngIf = "kitchen && kitchen.currency">{{kitchen.currency}}</span> {{getPrice(flexiRepeatTotal.subTotal,flexiData.discount,'repeat') | number : '1.2-2'}}
+					</ion-col>
+				</ion-row>
+	
+				<ion-row>
+					<ion-col class="addToCartCol">
+						<button full no-margin ion-button class="addPkgToCartBtn" (click) = "addFlexiMealPkg()" [disabled] = "flexiTotal && flexiTotal.subTotal ? false : true ">Add Weekly Package to Cart</button>
+					</ion-col>
+				</ion-row>
+			</ion-slide>
+		</ion-slides>
+	</ion-content>
+	

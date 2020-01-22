@@ -1,0 +1,201 @@
+<!--
+Generated template for the AddressPage page.
+
+See http://ionicframework.com/docs/components/#navigation for more info on
+Ionic pages and navigation.
+-->
+<ion-header>
+
+	<ion-navbar>
+        <ion-title *ngIf = "!editCard">Add Card</ion-title>
+		<ion-title *ngIf = "editCard">Update Card</ion-title>
+	</ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding has-bouncing="true">
+	<ion-list>
+        <!-- <ion-list class="cardRadio" radio-group [(ngModel)]="cardType" (ionChange) = "choose('card')">
+            <ion-row ><strong>Card Type</strong></ion-row>
+            <ion-item>
+                <ion-label>Master</ion-label>
+                <ion-radio item-left value="master"></ion-radio>
+            </ion-item>
+
+            <ion-item>
+                <ion-label>Maestro</ion-label>
+                <ion-radio item-left value="maestro"></ion-radio>
+            </ion-item>
+
+            <ion-item>
+                <ion-label>Debit</ion-label>
+                <ion-radio item-left value="debit"></ion-radio>
+            </ion-item>
+
+            <ion-item>
+                <ion-label>Credit</ion-label>
+                <ion-radio item-left value="credit"></ion-radio>
+            </ion-item>
+
+            <ion-item>
+                <ion-label>Visa</ion-label>
+                <ion-radio item-left value="visa"></ion-radio>
+            </ion-item>
+        </ion-list> -->
+
+        <!-- <form role="form" [formGroup]="cardForm" (ngSubmit)="addCard()">
+            
+            <ion-row class="marginBottom1rem width100">
+                <ion-label>
+                    <strong>Enter Card Number</strong>
+                    <img *ngIf = "cardForm.value.cardtype" class="cardImages" [src]="cardImage()">
+                </ion-label>
+                <ion-row>
+                    <ion-input class = "cardNo" (keyup)="addSpace($event)" maxlength="19" formControlName="cardnumber" type="tel" placeholder="Card Number"></ion-input>
+                </ion-row>
+                <ion-row *ngIf="formErrors.cardnumber" class="cardNoError">
+                    {{ formErrors.cardnumber }}
+                </ion-row>
+            </ion-row>
+            
+            
+
+            <ion-row class="marginBottom1rem width100">
+                <ion-label><strong>Enter CVV</strong></ion-label>
+                <ion-row>
+                    <ion-input class = "cvvNo" maxlength="3" minlength="3" formControlName="cvv" type="tel" placeholder="CVV"></ion-input>
+                </ion-row>
+                <ion-row *ngIf="formErrors.cvv" class="cardNoError">
+                    {{ formErrors.cvv }}
+                </ion-row>
+            </ion-row>
+            
+            <ion-row class="marginBottom1rem width100">
+                <ion-label><strong>Name on Card</strong></ion-label>
+                <ion-row>
+                    <ion-input formControlName="nameoncard" type="text" placeholder="Name on Card"></ion-input>
+                </ion-row>
+            </ion-row>
+            
+            <ion-row class="marginBottom1rem width100">
+                <ion-row class= "expDateRow">
+                    <ion-label no-margin><strong>Expiry Date</strong></ion-label>
+                    <ion-select formControlName="expirymonth" (ionChange) = "choose('month')">
+                        <ion-option *ngFor = "let mnth of month" [value] = "mnth">{{mnth}}</ion-option>
+                    </ion-select>
+                    <ion-select formControlName="expiryyear" (ionChange) = "choose('year')">
+                        <ion-option *ngFor = "let yr of year" [value] = "yr">{{yr}}</ion-option>
+                    </ion-select>
+                </ion-row>
+            </ion-row> -->
+
+            <!-- <ion-label><strong>City</strong></ion-label>
+            <ion-row>
+                <ion-input formControlName="city" type="text" placeholder="Enter city"></ion-input>
+            </ion-row>
+            
+            <ion-label><strong>Postalcode</strong></ion-label>
+            <ion-row>
+                <ion-input formControlName="postalcode" type="text" placeholder="Enter Postalcode"></ion-input>
+            </ion-row> -->
+<!-- 
+            <button *ngIf = "!editCard" ion-button full [disabled]="!cardForm.valid">Add Card</button>
+            <button *ngIf = "editCard" ion-button full [disabled]="!cardForm.valid">Update Card</button>
+        </form> -->
+
+
+
+        <form role="form" [formGroup]="cardForm" (ngSubmit)="addCard()" class="addCardForm">
+            <ion-label><strong>Card Number</strong></ion-label>
+            <ion-row>
+                <ion-input class = "cardNo" (keyup)="addSpace($event)" maxlength="19" formControlName="cardnumber" type="tel" placeholder="Card Number"></ion-input>
+                <ion-input class = "cvvNo" maxlength="3" minlength="3" formControlName="cvv" type="tel" placeholder="CVV"></ion-input>
+            </ion-row>
+
+            <ion-row *ngIf="formErrors.cardnumber"  class="cardNoError">
+                {{ formErrors.cardnumber }}
+            </ion-row>
+
+            
+            <ion-label><strong>First Name</strong></ion-label>
+            <ion-row>
+                <ion-input formControlName="fname" type="text" placeholder="First Name "></ion-input>
+            </ion-row>
+            
+            <ion-label><strong>Last Name</strong></ion-label>
+            <ion-row>
+                <ion-input formControlName="lname" type="text" placeholder="Last Name "></ion-input>
+            </ion-row>
+            <ion-label><strong>City </strong> <small>(not Required)</small> </ion-label>
+            <ion-row>
+                <ion-input  formControlName="city" type="text" placeholder="City Name"></ion-input>
+            </ion-row>
+            <ion-row *ngIf="formErrors.city"  class="cardNoError">
+                {{ formErrors.city }}
+            </ion-row>
+            <ion-label><strong>State</strong> <small>(not Required)</small></ion-label>
+            <ion-row>
+                <ion-input  formControlName="state" type="text" placeholder="State Name"></ion-input>
+            </ion-row>
+            <ion-row *ngIf="formErrors.state"  class="cardNoError">
+                {{ formErrors.state }}
+            </ion-row>
+            <ion-label><strong>Address</strong></ion-label>
+            <ion-row>
+                <ion-input  formControlName="address" type="text" placeholder="Address"></ion-input>
+            </ion-row>
+            <ion-row *ngIf="formErrors.address"  class="cardNoError">
+                {{ formErrors.address }}
+            </ion-row>
+            <ion-label><strong>Zip</strong></ion-label>
+            <ion-row>
+                <ion-input maxlength="9" formControlName="zip" type="text" placeholder="Zip"></ion-input>
+            </ion-row>
+            <ion-row *ngIf="formErrors.zip"  class="cardNoError">
+                {{ formErrors.zip }}
+            </ion-row>
+<!-- <ion-label><strong>Name on Card</strong></ion-label>
+            <ion-row>
+                <ion-input formControlName="nameoncard" type="text" placeholder="Name on Card"></ion-input>
+            </ion-row> -->
+            
+            <ion-row class= "expDateRow">
+                <ion-label no-padding><strong>Expiry Date</strong></ion-label>
+                <ion-select formControlName="expirymonth" (ionChange) = "choose('month')">
+                    <ion-option *ngFor = "let mnth of month" [value] = "mnth">{{mnth}}</ion-option>
+                </ion-select>
+                <ion-select formControlName="expiryyear" (ionChange) = "choose('year')">
+                    <ion-option *ngFor = "let yr of year" [value] = "yr">{{yr}}</ion-option>
+                </ion-select>
+            </ion-row>
+            
+            <!-- <ion-label><strong>City</strong></ion-label>
+            <ion-row>
+                <ion-input formControlName="city" type="text" placeholder="Enter city"></ion-input>
+            </ion-row>
+            
+            <ion-label><strong>Postalcode</strong></ion-label>
+            <ion-row>
+                <ion-input formControlName="postalcode" type="text" placeholder="Enter Postalcode"></ion-input>
+            </ion-row> -->
+
+       
+            <button *ngIf = "!editCard" ion-button full [disabled]="!cardForm.valid">Add Card</button>
+            <button *ngIf = "editCard" ion-button full [disabled]="!cardForm.valid">Update Card</button>
+        </form>
+
+
+
+
+
+
+
+
+
+
+
+
+    </ion-list>
+
+</ion-content>

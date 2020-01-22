@@ -1,0 +1,23 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Completed</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding has-bouncing="true">
+	<!-- <ion-row text-center> -->
+	<div class="thnkDiv">
+		<h3  text-center>Thank You</h3>
+		<ion-row>
+			<ion-col text-center><strong>Order Successfull</strong></ion-col>
+		</ion-row>
+		<ion-row>
+			<ion-col text-center><strong>Order Id : #{{order._id.substr(18,6)}}</strong></ion-col>
+		</ion-row>
+		<ion-row>
+			<ion-col text-center><ion-icon name="happy" ios="ios-happy" md="md-happy"></ion-icon></ion-col>
+		</ion-row>
+	</div>
+	<!-- </ion-row> -->
+	<button ion-button full (click)="homePage()">Go To Home</button>
+</ion-content>

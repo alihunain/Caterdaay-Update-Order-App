@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "C:\\KLproject\\OrderSystem1\\platforms\\android\\build\\intermediates\\res\\merged\\release\\xml\\camera_provider_paths.xml",
+        "source": "C:\\KLproject\\OrderSystem1\\platforms\\android\\res\\xml\\camera_provider_paths.xml"
+    },
+    {
+        "merged": "C:\\KLproject\\OrderSystem1\\platforms\\android\\build\\intermediates\\res\\merged\\release\\xml\\config.xml",
+        "source": "C:\\KLproject\\OrderSystem1\\platforms\\android\\res\\xml\\config.xml"
+    }
+]

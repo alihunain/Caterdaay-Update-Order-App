@@ -1,0 +1,36 @@
+page-profile-update {
+
+	/*.calendarLabel ion-label{
+		flex : 0 !important;
+	}*/
+
+	form .button-default{
+		background-color : #449D44 !important;
+		margin-top: 2vh !important;
+	}
+
+	form ion-radio{
+	    margin: 9px 8px 9px 0 !important;
+	}
+
+	.genderRadio ion-item{
+		min-height: 2.4rem !important;
+	}
+
+	.genderRadio ion-item .item-inner{
+		border: none !important;
+	}
+
+	.genderRadio ion-item ion-label{
+		margin : 0 !important;
+	}
+
+	.displayFlex{
+	    padding: 5px 0 !important;
+	}
+
+	.genderLabel{
+		margin: 9px 0 !important;
+	}
+
+}

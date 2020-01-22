@@ -1,0 +1,93 @@
+<ion-header>
+    <ion-navbar>
+    	<button ion-button clear float-left class="white heightAuto" (click)="reset()">
+            Reset
+        </button>
+        <!-- <span padding-horizontal float-left start ion-text class="white fontWeight700" (click)="reset()">Reset</span> -->
+        <ion-title>Filter</ion-title>
+
+        <button ion-button clear float-right class="white heightAuto" (click)="filter('back')">
+            Cancel
+        </button>
+        <!-- <span padding-horizontal float-right end ion-text class="white fontWeight700" (click)="filter('back')">Cancel</span> -->
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding has-bouncing="true">
+	
+	<ion-list>
+		<ion-list-header><strong>Near by in Kilometers</strong></ion-list-header>
+	
+		<ion-range min="0" max="100" pin="true" [(ngModel)]="milesRange" color="primary" (ionChange)="chooseType('miles')">
+			<ion-icon range-left small name="pin" ios="ios-pin" md="md-pin"></ion-icon>
+			<ion-icon range-right name="pin" ios="ios-pin" md="md-pin"></ion-icon>
+		</ion-range>
+	</ion-list>
+
+	<ion-list class="chooseCountry" *ngIf = "countryList && countryList.length > 0">
+		<ion-item>
+			<ion-label>Select Country</ion-label>
+			<ion-select class="select-wp" [(ngModel)]="country" [placeholder]="'Select Country....'" [selectOptions]="countryAlertOpts" (ionChange)="chooseType('country')">
+				<ion-option *ngFor = "let cntry of countryList" [value] = "cntry">{{cntry.countryName}}</ion-option>
+			</ion-select>
+		</ion-item>
+		<ion-item *ngIf = "cityList && cityList.length > 0">
+			<ion-label>Select City</ion-label>
+			<ion-select class="select-wp" [(ngModel)]="city" [placeholder]="'Select City....'" [selectOptions]="cityAlertOpts" (ionChange)="chooseType('city')">
+				<ion-option *ngFor = "let city of cityList" [value] = "city">{{city.cityName}}</ion-option>
+			</ion-select>
+		</ion-item>
+		<ion-item *ngIf = "cityList && cityList.length == 0">
+			<ion-row class="fontSize1-2rem">No Chef in this Country</ion-row>
+		</ion-item>
+	</ion-list>
+
+
+	<!-- <ion-list radio-group [(ngModel)]="resType" (ionChange)="chooseType('res')">
+		<ion-list-header><strong>Filters</strong></ion-list-header>
+
+		<ion-item>
+			<ion-label>All</ion-label>
+			<ion-radio value="all"></ion-radio>
+		</ion-item>
+
+		<ion-item>
+			<ion-label>New Restaurants/Chefs</ion-label>
+			<ion-radio value="new"></ion-radio>
+		</ion-item>
+
+		<ion-item>
+			<ion-label>Instant Delivery</ion-label>
+			<ion-radio value="fastDelivery"></ion-radio>
+		</ion-item>
+	</ion-list> -->
+
+	<ion-list>
+		<ion-list-header><strong>Cuisine</strong></ion-list-header>
+
+		<ion-item>
+			<ion-label>All</ion-label>
+			<ion-checkbox  (ionChange)="chooseCuisine($event,'any')" [checked]="cuisineType"></ion-checkbox>
+		</ion-item>
+
+		<ion-item *ngFor = "let cuisine of cuisineList">
+			<ion-label>{{cuisine.name}}</ion-label>
+			<ion-checkbox [checked]="checkCuisineArray(cuisine._id)" (ionChange)="chooseCuisine($event,'cuisine',cuisine)">{{cuisine.name}}</ion-checkbox>
+		</ion-item>
+	</ion-list>
+
+	<!-- <ion-list>
+		<ion-list-header><strong>Choose Rating</strong></ion-list-header>
+		<rating class="ratingStar" [(ngModel)]="ratingType"  max="5" emptyStarIconName="star-outline" halfStarIconName="star-half" starIconName="star" nullable="false" (ngModelChange)="chooseType('rating')"> </rating>
+	</ion-list> -->
+
+	<!-- <ion-row>
+		<ion-col class = "displayFlex">
+			<strong>Choose Rating</strong>
+			<rating class="ratingStar" [(ngModel)]="ratingType" readOnly="false" max="5" emptyStarIconName="star-outline" halfStarIconName="star-half" starIconName="star" nullable="false" (ngModelChange)="chooseType('rating')"> </rating>
+		</ion-col>
+	</ion-row> -->
+
+	<button ion-button full class="themeRedBg" round (click) = "filter('apply')">Apply Filter</button>
+
+</ion-content>

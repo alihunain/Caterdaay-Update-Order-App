@@ -1,0 +1,134 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget android-versionCode="68" id="io.ionic.customerApp" version="2.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <feature name="NativeSettings">
+        <param name="android-package" value="com.phonegap.plugins.nativesettings.NativeSettings" />
+    </feature>
+    <feature name="AppMinimize">
+        <param name="android-package" value="tomloprod.AppMinimize" />
+    </feature>
+    <feature name="Badge">
+        <param name="android-package" value="de.appplant.cordova.plugin.badge.Badge" />
+    </feature>
+    <feature name="Camera">
+        <param name="android-package" value="org.apache.cordova.camera.CameraLauncher" />
+    </feature>
+    <feature name="Device">
+        <param name="android-package" value="org.apache.cordova.device.Device" />
+    </feature>
+    <feature name="FCMPlugin">
+        <param name="android-package" value="com.gae.scaffolder.plugin.FCMPlugin" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="File">
+        <param name="android-package" value="org.apache.cordova.file.FileUtils" />
+        <param name="onload" value="true" />
+    </feature>
+    <allow-navigation href="cdvfile:*" />
+    <feature name="FileTransfer">
+        <param name="android-package" value="org.apache.cordova.filetransfer.FileTransfer" />
+    </feature>
+    <feature name="FilePath">
+        <param name="android-package" value="com.hiddentao.cordova.filepath.FilePath" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="Geolocation">
+        <param name="android-package" value="org.apache.cordova.geolocation.Geolocation" />
+    </feature>
+    <feature name="NetworkStatus">
+        <param name="android-package" value="org.apache.cordova.networkinformation.NetworkManager" />
+    </feature>
+    <feature name="SplashScreen">
+        <param name="android-package" value="org.apache.cordova.splashscreen.SplashScreen" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="StatusBar">
+        <param name="android-package" value="org.apache.cordova.statusbar.StatusBar" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="Whitelist">
+        <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="CallNumber">
+        <param name="android-package" value="mx.ferreyra.callnumber.CFCallNumber" />
+    </feature>
+    <feature name="Keyboard">
+        <param name="android-package" onload="true" value="io.ionic.keyboard.IonicKeyboard" />
+    </feature>
+    <feature name="Diagnostic">
+        <param name="android-package" value="cordova.plugins.Diagnostic" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="Diagnostic_Location">
+        <param name="android-package" value="cordova.plugins.Diagnostic_Location" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="Diagnostic_Bluetooth">
+        <param name="android-package" value="cordova.plugins.Diagnostic_Bluetooth" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="Diagnostic_Wifi">
+        <param name="android-package" value="cordova.plugins.Diagnostic_Wifi" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="Diagnostic_Camera">
+        <param name="android-package" value="cordova.plugins.Diagnostic_Camera" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="Diagnostic_Notifications">
+        <param name="android-package" value="cordova.plugins.Diagnostic_Notifications" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="Diagnostic_NFC">
+        <param name="android-package" value="cordova.plugins.Diagnostic_NFC" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="Diagnostic_External_Storage">
+        <param name="android-package" value="cordova.plugins.Diagnostic_External_Storage" />
+        <param name="onload" value="true" />
+    </feature>
+    <name>MealDaay Order App</name>
+    <description>An awesome Ionic/Cordova app.</description>
+    <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
+    <content src="index.html" />
+    <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <allow-navigation href="http://192.168.100.69:8100" />
+    <allow-navigation href="http://192.168.43.241:8100" />
+    <allow-intent href="market:*" />
+    <icon density="ldpi" src="resources/android/icon/ldpi.png" />
+    <icon density="mdpi" src="resources/android/icon/mdpi.png" />
+    <icon density="hdpi" src="resources/android/icon/hdpi.png" />
+    <icon density="xhdpi" src="resources/android/icon/xhdpi.png" />
+    <icon density="xxhdpi" src="resources/android/icon/xxhdpi.png" />
+    <icon density="xxxhdpi" src="resources/android/icon/xxxhdpi.png" />
+    <splash density="land-ldpi" src="resources/android/splash/land-ldpi.png" />
+    <splash density="land-mdpi" src="resources/android/splash/land-mdpi.png" />
+    <splash density="land-hdpi" src="resources/android/splash/land-hdpi.png" />
+    <splash density="land-xhdpi" src="resources/android/splash/land-xhdpi.png" />
+    <splash density="land-xxhdpi" src="resources/android/splash/land-xxhdpi.png" />
+    <splash density="land-xxxhdpi" src="resources/android/splash/land-xxxhdpi.png" />
+    <splash density="port-ldpi" src="resources/android/splash/port-ldpi.png" />
+    <splash density="port-mdpi" src="resources/android/splash/port-mdpi.png" />
+    <splash density="port-hdpi" src="resources/android/splash/port-hdpi.png" />
+    <splash density="port-xhdpi" src="resources/android/splash/port-xhdpi.png" />
+    <splash density="port-xxhdpi" src="resources/android/splash/port-xxhdpi.png" />
+    <splash density="port-xxxhdpi" src="resources/android/splash/port-xxxhdpi.png" />
+    <preference name="loglevel" value="DEBUG" />
+    <preference name="orientation" value="portrait" />
+    <preference name="ScrollEnabled" value="false" />
+    <preference name="android-minSdkVersion" value="19" />
+    <preference name="BackupWebStorage" value="none" />
+    <preference name="SplashMaintainAspectRatio" value="true" />
+    <preference name="FadeSplashScreenDuration" value="300" />
+    <preference name="SplashShowOnlyFirstTime" value="false" />
+    <preference name="SplashScreen" value="screen" />
+    <preference name="SplashScreenDelay" value="3000" />
+    <preference name="AutoHideSplashScreen" value="false" />
+    <preference name="loadUrlTimeoutValue" value="700000" />
+</widget>

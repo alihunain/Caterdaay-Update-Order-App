@@ -1,0 +1,39 @@
+<!--
+  Generated template for the ReferPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+	<ion-navbar>
+		<button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+		<ion-title>Refer</ion-title>
+        <ion-icon padding-top padding-horizontal margin-right class = "white" float-right end name="cart" ios="ios-cart" md="md-cart" (click)="cartPage()"></ion-icon>
+	</ion-navbar>
+
+</ion-header>
+
+
+<ion-content has-bouncing="true" padding>
+	<ion-row class="marginBottom5vh" text-center><h3><strong>Invite your friends to Mealday</strong></h3></ion-row>
+
+	<ion-row class="marginBottom5vh" text-center><h5>Get upto 25,000 points per Friend, plus 100 points per Invite</h5></ion-row>
+
+	<ion-row class="marginBottom5vh desc">
+		Get upto 25,000 points per Friend, plus 100 points per Invite. Get upto 25,000 points per Friend, plus 100 points per Invite. Get upto 25,000 points per Friend, plus 100 points per Invite.
+	</ion-row>
+
+	<ion-row padding-horizontal><ion-input type="text" placeholder = "Invite by email"></ion-input></ion-row>
+
+	<ion-row padding-horizontal><button  ion-button full>Send</button></ion-row>
+
+	<h5 text-center class="marginTop0">OR</h5>
+
+	<ion-row padding-horizontal><strong>Use this link with friends...</strong></ion-row>
+
+	<ion-row padding-horizontal><ion-input type="text" placeholder = "www.mealdaay.com/" disabled></ion-input></ion-row>
+
+</ion-content>

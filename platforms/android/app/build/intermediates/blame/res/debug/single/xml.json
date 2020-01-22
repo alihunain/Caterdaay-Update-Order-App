@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "C:\\KLproject\\OrderSystem1\\platforms\\android\\build\\intermediates\\res\\merged\\debug\\xml\\config.xml",
+        "source": "C:\\KLproject\\OrderSystem1\\platforms\\android\\res\\xml\\config.xml"
+    },
+    {
+        "merged": "D:\\OrderApp\\platforms\\android\\build\\intermediates\\res\\merged\\debug\\xml\\camera_provider_paths.xml",
+        "source": "D:\\OrderApp\\platforms\\android\\res\\xml\\camera_provider_paths.xml"
+    },
+    {
+        "merged": "D:\\OrderApp\\platforms\\android\\build\\intermediates\\res\\merged\\debug\\xml\\config.xml",
+        "source": "D:\\OrderApp\\platforms\\android\\res\\xml\\config.xml"
+    },
+    {
+        "merged": "C:\\KLproject\\OrderSystem1\\platforms\\android\\build\\intermediates\\res\\merged\\debug\\xml\\camera_provider_paths.xml",
+        "source": "C:\\KLproject\\OrderSystem1\\platforms\\android\\res\\xml\\camera_provider_paths.xml"
+    }
+]

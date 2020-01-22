@@ -1,0 +1,86 @@
+{
+  "_from": "cordova-open-native-settings@^1.5.1",
+  "_id": "cordova-open-native-settings@1.5.1",
+  "_inBundle": false,
+  "_integrity": "sha512-blHs3ilSQNG+YE4c4qxw6YEmod62gbc/+Y+B0ocYxiTxY2LBgIFsa/fGX1LKN1Hj5y4T2OreBTM7u/mWCBHGWA==",
+  "_location": "/cordova-open-native-settings",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "cordova-open-native-settings@^1.5.1",
+    "name": "cordova-open-native-settings",
+    "escapedName": "cordova-open-native-settings",
+    "rawSpec": "^1.5.1",
+    "saveSpec": null,
+    "fetchSpec": "^1.5.1"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-open-native-settings/-/cordova-open-native-settings-1.5.1.tgz",
+  "_shasum": "63b3f08f995317a8304ab5b156e3a7a4d944088f",
+  "_spec": "cordova-open-native-settings@^1.5.1",
+  "_where": "C:\\KLproject\\newUpdatedMealyDaay6\\projects\\naved\\App\\Order System",
+  "author": {
+    "name": "Guy Rombaut",
+    "email": "admin@gsrweb.net"
+  },
+  "bugs": {
+    "url": "https://github.com/guyromb/Cordova-open-native-settings/issues"
+  },
+  "bundleDependencies": false,
+  "contributors": [
+    {
+      "name": "Guy Rombaut",
+      "email": "admin@gsrweb.net",
+      "url": "http://gsrweb.net"
+    },
+    {
+      "name": "unknown"
+    },
+    {
+      "name": "unknown"
+    },
+    {
+      "name": "unknown"
+    },
+    {
+      "name": "unknown"
+    },
+    {
+      "name": "unknown"
+    }
+  ],
+  "cordova": {
+    "id": "cordova-open-native-settings",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "deprecated": false,
+  "description": "Native settings opener for Cordova",
+  "engines": {
+    "cordovaDependencies": {
+      "1.5.0": {
+        "cordova": ">4.0.0"
+      }
+    }
+  },
+  "homepage": "https://github.com/guyromb/Cordova-open-native-settings#readme",
+  "keywords": [
+    "native-settings",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "license": "MIT",
+  "name": "cordova-open-native-settings",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guyromb/Cordova-open-native-settings.git"
+  },
+  "version": "1.5.1"
+}

@@ -1,0 +1,25 @@
+.content-grid{
+    text-align: center;
+}
+.orderThumbnails{
+  
+    border-radius: 60px;
+    object-fit: cover;
+}
+.display{
+
+      display: none;
+      padding: 0 2px; 
+    // justify-content: center;
+    //  align-items: center; 
+    font-size: 12px; 
+}
+.red{
+    background-color: #c9302c !important;
+}
+.green{
+    background-color:  #449D44 !important;
+}
+ion-content > .scroll-content{
+    padding-bottom: 56px;
+  }

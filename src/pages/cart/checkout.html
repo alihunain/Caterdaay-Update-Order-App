@@ -1,0 +1,407 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Checkout</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding  has-bouncing="true">
+
+	<ion-list>
+			<ion-item no-padding>
+					<ion-label>
+						<strong>Subtotal : </strong>
+						<span float-right>{{orderdetails.currency}} {{SubTotal | number : '1.2-2'}}</span>
+					</ion-label>
+				</ion-item>
+				<!-- <ion-item no-padding>
+					<ion-label>
+						<strong>Add-On Total : </strong>
+						<span float-right>{{orderdetails.currency}} {{addOnTotal | number : '1.2-2'}}</span>
+					</ion-label>
+				</ion-item> -->
+				<ion-item no-padding>
+					<ion-label>
+						<strong>Tax Charges : </strong>
+						<span float-right>{{orderdetails.currency}} {{TaxPrices | number : '1.2-2'}}</span>
+					</ion-label>
+			</ion-item>
+				<ion-item no-padding>
+						<ion-label>
+							<strong>Delivery Charges : </strong>
+							<span float-right>{{orderdetails.currency}} {{deliveryCharges | number : '1.2-2'}}</span>
+						</ion-label>
+				</ion-item>
+				
+		<ion-item no-padding>
+			<ion-label>
+				<strong>Amount Payable : </strong>
+				<span float-right>{{orderdetails.currency}} {{orderdetails.total }}</span>
+			</ion-label>
+		</ion-item>
+		<ion-item no-padding>
+			<ion-label (click)="showCart()">
+				
+				<span float-right style="color: red"><strong>Review Order </strong></span>
+			</ion-label>
+		</ion-item>
+	</ion-list>
+<!-- 
+	<ion-list *ngIf="dayliyItems" class="addressRadio" radio-group [(ngModel)]="orderTimeSelect" (ionChange) = "orderTimeFunction()">
+		<ion-row><strong>Choose Daily Menu Items Delivery Date And  Time</strong></ion-row>
+		<ion-item *ngIf="resStatus == 'close'">
+			<ion-label text-center><strong text-center>Kitchen is Closed! You Can't Order for Now</strong></ion-label>
+		</ion-item>
+
+		<ion-item *ngIf="resStatus != 'close'">
+			<ion-label><strong>Now</strong></ion-label>
+			<ion-radio item-left value="now"></ion-radio>
+		</ion-item>
+
+		<ion-item *ngIf = "orderLaterAllowed && orderdetails ">
+			<ion-label><strong>Pre-order for Later</strong></ion-label>
+			<ion-radio item-left value="later"></ion-radio>
+		</ion-item>
+	</ion-list> -->
+
+	<!-- <ion-row *ngIf = "orderTimeSelect == 'now' && minTime && dayliyItems" padding>Expected Fastest Delivery Within : <strong>{{minTime}} min</strong></ion-row> -->
+     <!-- condition on date time
+	*ngIf = "showLater && dayliyItems" -->
+	<ion-row  class="padding010 marginBottom32px timeBg displayBlock">
+		<ion-row class="width100">
+			<ion-label><strong>Date</strong></ion-label>
+			<ion-datetime placeholder = "Select Date..." displayFormat="DDDD, DD-MMM-YYYY" pickerFormat="DD-MMMM-YYYY" [min]="currentDate" [max]="currentDatePlus60" [(ngModel)]="event.laterDay" (ionChange)="laterFunction('date')"></ion-datetime>
+		</ion-row>
+		<ion-row class="width100">
+			<ion-label><strong>Time</strong></ion-label>
+			<ion-datetime placeholder = "Select Time..." displayFormat="hh:mm A" pickerFormat="HH:mm" id="laterTime1" [(ngModel)]="event.laterTime" (ionChange)="laterFunction('time')"></ion-datetime>
+		</ion-row>
+	</ion-row>
+	<ion-list padding class = "bgLightGreen">
+			<ion-label><strong>Driver Instruction (optional)</strong></ion-label>
+        <form role="form"  [formGroup]="driverInst">
+            <ion-item >
+                <ion-input type="text" formControlName="inst" placeholder="Knock a door"></ion-input>
+            </ion-item>
+            
+            <!-- <ion-item>
+                <ion-input formControlName="landline" type="tel" placeholder="Enter Landline No"></ion-input>
+            </ion-item> -->
+        </form>
+    </ion-list>
+	<ion-list *ngIf = "currentCustomer && currentCustomer.customeraddresses" class="addressRadio" radio-group [(ngModel)]="address" (ionChange) = "deliveryAddress()">
+		<ion-row ><strong>Address</strong></ion-row>
+		<!-- <ion-row><small>*for take away Address is not mandatory </small></ion-row> -->
+		<ion-item *ngFor = "let adrs of currentCustomer.customeraddresses; let i = index; ">
+			<ion-label>
+				<p class="whiteSpaceInitial paddingVertical0-5vh"><strong>Address : </strong>{{adrs.address}}</p>
+				<!-- <p class="whiteSpaceInitial paddingVertical0-5vh" *ngIf = "adrs.landmark != ''"><strong>Landmark : </strong>{{adrs.landmark}}</p> -->
+				<p class="whiteSpaceInitial paddingVertical0-5vh"><strong>Zipcode : </strong>{{adrs.zip || adrs.zipcode}}</p>
+				<!-- <p class="whiteSpaceInitial paddingVertical0-5vh" *ngIf = "adrs.landline != ''"><strong>Landline : </strong>{{adrs.landline}}</p> -->
+				<p class="whiteSpaceInitial paddingVertical0-5vh"><strong>Phone No : </strong>{{adrs.phoneno}}</p>
+			</ion-label>
+			<ion-radio item-left [value]="i"></ion-radio>
+		</ion-item>
+
+		<ion-item>
+			<ion-label><strong>Enter New Address</strong></ion-label>
+			<ion-radio item-left value="new"></ion-radio>
+		</ion-item>
+	</ion-list>
+
+	<ion-list *ngIf = "address == 'new'" padding class = "bgLightGreen">
+        <form role="form" [formGroup]="addressForm" (ngSubmit)="addAddress()">
+            <ion-item>
+                <ion-input formControlName="phoneno" type="tel" placeholder="Enter Mobile No"></ion-input>
+            </ion-item>
+            
+            <!-- <ion-item>
+                <ion-input formControlName="landline" type="tel" placeholder="Enter Landline No"></ion-input>
+            </ion-item> -->
+            
+            <ion-item class="diffInput">
+                <input id="pac-input" type="text"    placeholder="Enter an Address" autocorrect="off" spellcheck="off" autocapitalize="off" #search class="form-control" formControlName="address" />
+            </ion-item>
+            
+        
+            <ion-item>
+                <ion-input formControlName="city" type="text" placeholder="City"></ion-input>
+            </ion-item>
+            
+            <ion-item>
+                <ion-input formControlName="country" type="text" placeholder="Country"></ion-input>
+            </ion-item>
+            
+            <ion-item>
+                <ion-input formControlName="zipcode" type="text" placeholder="Postal Code"></ion-input>
+            </ion-item>
+
+            <button ion-button full [disabled]="!addressForm.valid">Add Address</button>
+        </form>
+    	
+    	<div id="map" style="height: 300px;"></div>
+	</ion-list>
+
+	<ion-list *ngIf = "orderdetails.total" class="paymentRadio margin32-0" radio-group [(ngModel)]="deliveryType" (ngModelChange)="onChangeDeliveryTye()">
+		<ion-row ><strong>Delivery Method</strong></ion-row>
+		<!-- <ion-item>
+			<ion-label> Take away  </ion-label>
+			<ion-radio item-left value="pick"></ion-radio>
+		</ion-item> -->
+
+		<ion-item>
+			
+			<ion-label> Delivery </ion-label>
+			<ion-radio item-left value="home"></ion-radio>
+		</ion-item>
+	</ion-list>
+	<!-- <ion-list *ngIf = "orderdetails.total" class="paymentRadio margin32-0" >
+		<ion-row *ngIf=" deliveryType == 'home' "><strong>Delivery Timing</strong></ion-row>
+		<ion-row *ngIf=" deliveryType == 'pick'"><strong>Pickup Timing</strong></ion-row>
+		<ion-item *ngIf="dayliyItems">
+			<div>
+				<label>Daily Menu Items <span *ngIf="deliveryType == 'home'">Delivery</span> <span *ngIf="deliveryType == 'pick'">Pickup </span></label>
+				<div>
+					<label>
+						Date and Time : <strong> {{orderdetails.ordertiming.datetime}} </strong>
+					</label>
+				</div>
+			</div>
+		</ion-item>
+		<ion-item *ngIf="weekendPackages">
+			<div>
+				<label>Select the Avalible <span *ngIf="deliveryType == 'home'">Delivery</span> <span *ngIf="deliveryType == 'pick'">Pickup</span> Slot For Weekend Packages</label>
+		
+			</div>
+			<div>
+				<ul class="list-group" style=" list-style: none !important;">
+                       
+					<li  *ngFor="let delvierySlot of delvierySlots; let i = index;">
+						<input type="radio" name="mealpackageDeliveryType"  [(ngModel)]="deliverySlotSelected" [value]="delvierySlot"  />  {{getMyDay(delvierySlot.day)}}  Timing  {{tConvert(delvierySlot.StartTime)}}   -  {{tConvert(delvierySlot.EndTime)}}
+					</li>
+					<li *ngIf="delvierySlots.length == 0">
+					  Sorry, No delivery Available
+					</li>
+				
+				  </ul>	
+				  <div *ngIf="deliverySlotSelected" class='input-group date'>
+						* Select Time For Weekend Packages
+						<div class='input-group date' id='datetimepicker1'>	
+					<input type="time" #weekly id="weekendTime" (change)="changeMinMaxOfWeekend($event,weekly)" (blur)="changeMinMaxOfWeekend($event,weekly)" />
+				
+				
+			
+					
+							  
+						
+								   
+								 
+								  <span id="weeklyFirtClock"   class="input-group-addon">
+									  <span  class="glyphicon glyphicon-time"></span>
+								  </span>
+							 
+							  </div>
+				
+				
+				
+				
+				
+				</div>
+				<div *ngIf="deliveryWeeklyError && deliverySlotSelected && deliverySlotSelected.StartTime && deliverySlotSelected.EndTime" style="color:red;">
+						<span>Please Select Time Between <br> {{tConvert(deliverySlotSelected.StartTime)}} to {{tConvert(deliverySlotSelected.EndTime)}} </span>
+				</div>	
+			</div>	
+		</ion-item>
+		<ion-item *ngIf="weeklyPackages">
+			<div>
+				<label>Select the Avalible <span *ngIf="deliveryType == 'home'">Delivery</span> <span *ngIf="deliveryType == 'pick'">Pickup</span> Slot For Weekly Packages</label>
+			</div>
+			<div>
+				<ul class="list-group" style=" list-style: none !important;">
+				 
+				  <li *ngFor="let delvierySlotsWeek of delvierySlotsWeekly; let i = index" style="margin-bottom: 10px;">
+					  <input type="radio" name="mealpackageDelvierySlotsWeek" (change)="slotIsChangeInWeekly()"  [(ngModel)]="delvierySlotsWeekSeleted" [value]="delvierySlotsWeek"  /> Delivery  {{delvierySlotsWeek.dtype}} in a  Week  <br>Day : {{getMyDay(delvierySlotsWeek.Firstday)}} <span *ngIf="delvierySlotsWeek.FirstStartTime"> From  {{tConvert(delvierySlotsWeek.FirstStartTime)}} </span> to  <span *ngIf="delvierySlotsWeek.FirstStartTime">{{tConvert(delvierySlotsWeek.FirstEndTime)}}</span><br> <span *ngIf="delvierySlotsWeek.Secondday">Day 2 : </span> {{getMyDay(delvierySlotsWeek.Secondday)}} <span *ngIf="delvierySlotsWeek.SecondStartTime">From :  {{tConvert(delvierySlotsWeek.SecondStartTime)}}</span> <span *ngIf="delvierySlotsWeek.SecondEndTime">to   {{tConvert(delvierySlotsWeek.SecondEndTime)}} </span>   
+				  </li>
+			
+				 <li *ngIf="delvierySlotsWeekly.length ==0 ">
+				   Sorry, No delivery Avaliable 
+				 </li>
+				</ul>
+			</div>
+
+
+			<div *ngIf="delvierySlotsWeekSeleted" class='input-group date' >
+				  *	Select Time For Weekly Packages
+					
+					<div class='input-group date' id='datetimepicker1'>
+						 
+						<input type="time" #weekendFirst id="weeklyFirst" (change)="CheckingTimeValidationForFirst(weekendFirst)" (blur)="CheckingTimeValidationForFirst(weekendFirst)" />
+						<span id="weeklyFirtClock"   class="input-group-addon">
+							<span  class="glyphicon glyphicon-time"></span>
+						</span>
+				   
+					</div>
+			</div>
+				  <div *ngIf="deliveryWeekendErrorFirst && delvierySlotsWeekSeleted" style="color:red;">
+					<span>Please Select Time Between  {{tConvert(delvierySlotsWeekSeleted.FirstStartTime)}} to {{tConvert(delvierySlotsWeekSeleted.FirstEndTime)}} </span>
+				</div>
+			
+				<div *ngIf="delvierySlotsWeekSeleted && delvierySlotsWeekSeleted.dtype == 'Twice' ">
+
+						<div *ngIf="delvierySlotsWeekSeleted" class='input-group date' >
+						 * Select Time For Weekly Packages
+						  
+						  <div class='input-group date' id='datetimepicker2'>
+							  <input type='time' id="weeklySecond"  class="form-control"  #weekendSecond (change)="CheckingTimeValidationForSecond(weekendSecond)" (blur)="CheckingTimeValidationForSecond(weekendSecond)"/>
+							  <span class="input-group-addon" id="weeklySecondClock">
+								  <span class="glyphicon glyphicon-time"></span>
+							  </span>
+						  </div>
+		
+		
+		
+						</div>
+						<div *ngIf="deliveryWeekendErrorSecond && delvierySlotsWeekSeleted" style="color:red;">
+						  <span>Please Select Time Between  {{tConvert(delvierySlotsWeekSeleted.SecondStartTime)}} to {{tConvert(delvierySlotsWeekSeleted.SecondEndTime)}} </span>
+					  </div>
+				</div>
+
+
+
+		</ion-item>		
+	</ion-list> -->
+	<ion-list *ngIf = "orderdetails.total" class="paymentRadio margin32-0" radio-group [(ngModel)]="paymentType" (ionChange) = "pmentType()">
+		<ion-row ><strong>Payment Type</strong></ion-row>
+		<!-- <ion-item>
+			<ion-label *ngIf ="deliveryType == 'home'"> Cash on Delivery</ion-label>
+			<ion-label *ngIf ="deliveryType == 'pick'"> Cash on Pickup</ion-label>
+			<ion-radio item-left value="cash"></ion-radio>
+		</ion-item> -->
+
+		<ion-item>
+			<ion-label> Pay Online</ion-label>
+			<ion-radio item-left value="card"></ion-radio>
+		</ion-item>
+	</ion-list>
+	
+
+	<div *ngIf = "paymentType == 'card' ">
+		<ion-list *ngIf = "currentCustomer && currentCustomer.cardinfo" class="cardRadio" radio-group [(ngModel)]="chooseCard" (ionChange) = "crdType()">
+			<ion-row ><strong>Your Cards</strong></ion-row>
+			<ion-row *ngFor = "let card of currentCustomer.cardinfo; let i = index; ">
+				<ion-item>
+					<ion-label>
+						<p text-capitalize col-12 class="whiteSpaceInitial paddingVertical0-5vh"><strong>Card Type : </strong>{{card.cardtype}}</p>
+                        <p class="whiteSpaceInitial paddingVertical0-5vh"><strong>Card No : </strong>{{card.cardnumber}}</p>
+						<!-- <p class="whiteSpaceInitial paddingVertical0-5vh"><strong>Name on Card : </strong>{{card.fname}} {{card.lname}}</p>
+						<p class="whiteSpaceInitial paddingVertical0-5vh"><strong>Address : </strong>{{card.address}}</p>
+						<p class="whiteSpaceInitial paddingVertical0-5vh"><strong>Zip : </strong>{{card.zip}}</p>
+                        <p class="whiteSpaceInitial paddingVertical0-5vh"><strong>Expiry Month : </strong>{{card.expirymonth}}</p>
+                        <p class="whiteSpaceInitial paddingVertical0-5vh"><strong>Expiry Year : </strong>{{card.expiryyear}}</p> -->
+					</ion-label>
+					<ion-radio item-left [value]="i"></ion-radio>
+				</ion-item>
+				<!-- <form *ngIf = "cardSelected == i" padding-horizontal role="form" [formGroup]="cardCvvForm">
+					<ion-row>
+						<ion-col col-12 class="cvvRow">
+							<strong>Please Enter CVV :</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+							<ion-input *ngIf = "currentCustomer.cardinfo.length > 0 && chooseCard != 'new'" class = "cvvNo" maxlength="3" (keyup)="enterCVV($event)" minlength="3" formControlName="cvv" type="text" placeholder="CVV"></ion-input>
+						</ion-col>
+					</ion-row>
+				</form> -->
+			</ion-row>
+
+
+			<ion-row class="width100" *ngIf = "currentCustomer.cardinfo.length == 0">
+				<ion-col>No Card Saved!</ion-col>
+			</ion-row>
+
+			<ion-item>
+				<ion-label><strong>Enter New Card</strong></ion-label>
+				<ion-radio item-left value="new"></ion-radio>
+			</ion-item>
+		</ion-list>
+
+		<ion-list *ngIf = "chooseCard == 'new'" padding class = "bgLightGreen">
+	        <form role="form" [formGroup]="cardForm" (ngSubmit)="addCard()" class="addCardForm">
+	            <ion-label><strong>Card Number</strong></ion-label>
+	            <ion-row>
+	                <ion-input class = "cardNo" (keyup)="addSpace($event)" maxlength="19" formControlName="cardnumber" type="tel" placeholder="Card Number"></ion-input>
+	                <ion-input class = "cvvNo" maxlength="3" minlength="3" formControlName="cvv" type="tel" placeholder="CVV"></ion-input>
+	            </ion-row>
+
+	            <ion-row *ngIf="formErrors.cardnumber"  class="cardNoError">
+	            	{{ formErrors.cardnumber }}
+	            </ion-row>
+
+	            
+	            <ion-label><strong>First Name</strong></ion-label>
+	            <ion-row>
+	                <ion-input formControlName="fname" type="text" placeholder="First Name "></ion-input>
+				</ion-row>
+				
+				<ion-label><strong>Last Name</strong></ion-label>
+	            <ion-row>
+	                <ion-input formControlName="lname" type="text" placeholder="Last Name "></ion-input>
+				</ion-row>
+				<ion-label><strong>City </strong> <small>(not Required)</small> </ion-label>
+	            <ion-row>
+	                <ion-input  formControlName="city" type="text" placeholder="City Name"></ion-input>
+				</ion-row>
+				<ion-row *ngIf="formErrors.city"  class="cardNoError">
+	            	{{ formErrors.city }}
+	            </ion-row>
+				<ion-label><strong>State</strong> <small>(not Required)</small></ion-label>
+	            <ion-row>
+	                <ion-input  formControlName="state" type="text" placeholder="State Name"></ion-input>
+				</ion-row>
+				<ion-row *ngIf="formErrors.state"  class="cardNoError">
+	            	{{ formErrors.state }}
+	            </ion-row>
+				<ion-label><strong>Address</strong></ion-label>
+	            <ion-row>
+	                <ion-input  formControlName="address" type="text" placeholder="Address"></ion-input>
+				</ion-row>
+				<ion-row *ngIf="formErrors.address"  class="cardNoError">
+	            	{{ formErrors.address }}
+	            </ion-row>
+				<ion-label><strong>Zip</strong></ion-label>
+	            <ion-row>
+	                <ion-input maxlength="9" formControlName="zip" type="text" placeholder="Zip"></ion-input>
+				</ion-row>
+				<ion-row *ngIf="formErrors.zip"  class="cardNoError">
+	            	{{ formErrors.zip }}
+	            </ion-row>
+<!-- <ion-label><strong>Name on Card</strong></ion-label>
+	            <ion-row>
+	                <ion-input formControlName="nameoncard" type="text" placeholder="Name on Card"></ion-input>
+	            </ion-row> -->
+	            
+	            <ion-row class= "expDateRow">
+	                <ion-label no-padding><strong>Expiry Date</strong></ion-label>
+	                <ion-select formControlName="expirymonth" (ionChange) = "choose('month')">
+	                    <ion-option *ngFor = "let mnth of month" [value] = "mnth">{{mnth}}</ion-option>
+	                </ion-select>
+	                <ion-select formControlName="expiryyear" (ionChange) = "choose('year')">
+	                    <ion-option *ngFor = "let yr of year" [value] = "yr">{{yr}}</ion-option>
+	                </ion-select>
+	            </ion-row>
+	            
+	            <!-- <ion-label><strong>City</strong></ion-label>
+	            <ion-row>
+	                <ion-input formControlName="city" type="text" placeholder="Enter city"></ion-input>
+	            </ion-row>
+	            
+	            <ion-label><strong>Postalcode</strong></ion-label>
+	            <ion-row>
+	                <ion-input formControlName="postalcode" type="text" placeholder="Enter Postalcode"></ion-input>
+	            </ion-row> -->
+
+				<button ion-button full [disabled]="!cardForm.valid " *ngIf="!generatingToken"> <span > Add Card </span></button>
+	        </form>
+			<button ion-button full style="background-color:gray !important"  *ngIf="generatingToken"> <span > Loading !!!</span></button>
+	    </ion-list>
+	</div>
+
+	<button ion-button full  [disabled]="checkDisabled()" (click)="proceedToThank()">Place an Order</button>
+
+</ion-content>

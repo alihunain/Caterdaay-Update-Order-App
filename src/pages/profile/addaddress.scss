@@ -1,0 +1,36 @@
+page-addaddress{
+	form .button-default{
+		background-color : #449D44 !important;
+		border-radius : 0 !important;
+	    margin: 5vh 0;
+	}
+
+	ion-list{
+		margin : 0 !important;
+	}
+
+	ion-item{
+	    min-height: 2.4rem !important;
+	}
+
+	.text-input{
+		margin : 7px 0 !important;
+	}
+
+	ion-label.label-wp #pac-input{
+	    padding: 2px 8px;
+	    width: calc(100% - 8px) !important;
+	    border: 2px solid rgba(0, 0, 0, 0.5) !important;
+	    line-height: 3rem;
+	}
+
+	form #pac-input{
+	    width: 100%;
+	    border: none;
+	}
+
+
+	.diffInput .label-md, .diffInput .label-ios{
+	    margin: 7px 0px !important;
+	}
+}
