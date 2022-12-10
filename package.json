@@ -42,7 +42,7 @@
     "call-number": "1.0.1",
     "cordova-android": "6.3.0",
     "cordova-android-support-gradle-release": "^1.4.4",
-    "cordova-browser": "5.0.4",
+    "cordova-browser": "6.0.0",
     "cordova-open-native-settings": "^1.5.1",
     "cordova-plugin-appminimize": "1.0.0",
     "cordova-plugin-badge": "^0.8.7",
